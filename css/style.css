@@ -1,88 +1,53 @@
 /* ==========================================================================
-   GRADUATION INVITATION - EDITORIAL QUIET LUXURY DESIGN SYSTEM
-   Tạ Thị Nga • Graduation Ceremony 2026
+   THIỆP MỜI LỄ TỐT NGHIỆP • TẠ THỊ NGA
+   Phong cách Tối giản • Quiet Luxury & Editorial Cinematic
    ========================================================================== */
 
-/* --- GOOGLE FONTS IMPORT --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap');
 
-/* --- DESIGN TOKENS & COLOR PALETTES (QUIET LUXURY) --- */
+/* --- BẢNG MÀU QUIET LUXURY (75-80% Trung tính, 15-20% Typography, 5% Champagne Accent) --- */
 :root {
-  /* Dark Theme Palette (Default - 75-80% Neutral, 15-20% Typo, 5% Gold Accent) */
-  --bg-main: #090A0E;
-  --bg-surface: #111319;
-  --bg-card: rgba(17, 19, 25, 0.75);
-  --bg-elevated: #181A22;
-  --bg-pill: rgba(255, 255, 255, 0.04);
-  
-  --text-primary: #F0F1F5;
-  --text-secondary: #9DA2AF;
-  --text-muted: #636A78;
-  --text-inverse: #090A0E;
-  
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-highlight: rgba(212, 175, 55, 0.28);
+  /* Giao diện Tối (Mặc định) */
+  --bg-chinh: #090A0E;
+  --bg-the: #101217;
+  --bg-nhe: rgba(255, 255, 255, 0.03);
 
-  /* Accent: Champagne Gold - Strict 5% Usage Rule */
-  --gold-accent: #D4AF37;
-  --gold-subtle: #C5A880;
-  --gold-muted: rgba(212, 175, 55, 0.15);
-  --gold-glow: rgba(212, 175, 55, 0.08);
+  --chu-chinh: #F0F1F5;
+  --chu-phu: #9DA2AF;
+  --chu-mo: #606673;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --vien-manh: rgba(255, 255, 255, 0.07);
+  --vien-ro: rgba(255, 255, 255, 0.12);
 
-  /* Typography */
+  /* Màu điểm nhấn: Champagne Gold (Giới hạn tối đa 5%) */
+  --vang-accent: #D4AF37;
+  --vang-nhe: #C5A880;
+
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-hand: 'Caveat', cursive, 'Brush Script MT', sans-serif;
+  --font-tay: 'Caveat', cursive, sans-serif;
 
-  /* Image Overlay Gradients */
-  --image-gradient-right: linear-gradient(to right, rgba(9, 10, 14, 0) 60%, rgba(9, 10, 14, 0.95) 100%);
-  --image-gradient-bottom: linear-gradient(to top, rgba(9, 10, 14, 0.9) 0%, rgba(9, 10, 14, 0) 40%);
-  
-  /* Layout Transitions */
-  --transition-theme: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --chuyen-mau: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-/* Light Theme Palette (Clean, Alabaster/Ivory Editorial Quiet Luxury) */
+/* Giao diện Sáng (Alabaster / Ngà ấm thanh lịch) */
 [data-theme="light"] {
-  --bg-main: #FAF8F5;
-  --bg-surface: #FFFFFF;
-  --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-elevated: #F2EFEA;
-  --bg-pill: rgba(0, 0, 0, 0.035);
+  --bg-chinh: #FAF8F5;
+  --bg-the: #FFFFFF;
+  --bg-nhe: rgba(0, 0, 0, 0.025);
 
-  --text-primary: #15171C;
-  --text-secondary: #585E6B;
-  --text-muted: #878E9C;
-  --text-inverse: #FFFFFF;
+  --chu-chinh: #15171C;
+  --chu-phu: #5A606D;
+  --chu-mo: #8A91A0;
 
-  --border-subtle: rgba(0, 0, 0, 0.07);
-  --border-medium: rgba(0, 0, 0, 0.12);
-  --border-highlight: rgba(184, 145, 48, 0.35);
+  --vien-manh: rgba(0, 0, 0, 0.07);
+  --vien-ro: rgba(0, 0, 0, 0.12);
 
-  /* Gold Accent adapted for Light Background */
-  --gold-accent: #B08B32;
-  --gold-subtle: #A37E28;
-  --gold-muted: rgba(176, 139, 50, 0.12);
-  --gold-glow: rgba(176, 139, 50, 0.05);
-
-  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.1);
-
-  --image-gradient-right: linear-gradient(to right, rgba(250, 248, 245, 0) 60%, rgba(250, 248, 245, 0.95) 100%);
-  --image-gradient-bottom: linear-gradient(to top, rgba(250, 248, 245, 0.9) 0%, rgba(250, 248, 245, 0) 40%);
+  --vang-accent: #B08B32;
+  --vang-nhe: #A37E28;
 }
 
-/* --- RESET & BASE STYLES --- */
+/* --- RESET & NỀN TẢNG --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -93,132 +58,82 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+  background-color: var(--bg-chinh);
+  color: var(--chu-chinh);
   line-height: 1.6;
   min-height: 100vh;
-  transition: var(--transition-theme);
+  transition: var(--chuyen-mau);
   overflow-x: hidden;
   position: relative;
 }
 
-/* Subtle editorial grain background */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: radial-gradient(#000 1px, transparent 0);
-  background-size: 4px 4px;
-  z-index: 999;
-}
-
-/* Subtle background watermark monogram */
-.background-watermark {
+/* Watermark Monogram rất mờ ở góc nền */
+.watermark-nen {
   position: fixed;
   right: -5vw;
-  bottom: -8vh;
-  width: 50vw;
-  max-width: 600px;
-  opacity: 0.025;
+  bottom: -5vh;
+  width: 45vw;
+  max-width: 520px;
+  opacity: 0.022;
   pointer-events: none;
   z-index: 0;
-  color: var(--text-primary);
-  transition: var(--transition-theme);
+  color: var(--chu-chinh);
 }
 
-/* --- TOP FLOATING CONTROLS (THEME & TOOLS) --- */
-.floating-header {
+/* --- NÚT CHUYỂN CHẾ ĐỘ SÁNG / TỐI (GÓC TRÊN BÊN PHẢI) --- */
+.thanh-dieu-khien-tren {
   position: fixed;
-  top: 1.5rem;
+  top: 1.75rem;
   right: 2rem;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
 
-.theme-toggle-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--text-primary);
-  width: 44px;
-  height: 44px;
+.nut-doi-giao-dien {
+  background: var(--bg-the);
+  border: 1px solid var(--vien-manh);
+  color: var(--chu-chinh);
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.theme-toggle-btn:hover {
-  border-color: var(--gold-accent);
+.nut-doi-giao-dien:hover {
+  border-color: var(--vang-accent);
+  color: var(--vang-accent);
   transform: translateY(-2px);
-  color: var(--gold-accent);
 }
 
-.theme-toggle-btn svg {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.4s ease;
+.nut-doi-giao-dien svg {
+  width: 18px;
+  height: 18px;
 }
 
-.theme-toggle-btn .moon-icon {
+.nut-doi-giao-dien .icon-trang {
   display: none;
 }
 
-[data-theme="light"] .theme-toggle-btn .sun-icon {
+[data-theme="light"] .nut-doi-giao-dien .icon-mat-troi {
   display: none;
 }
 
-[data-theme="light"] .theme-toggle-btn .moon-icon {
+[data-theme="light"] .nut-doi-giao-dien .icon-trang {
   display: block;
 }
 
-/* Discrete Link Helper Button for the Host */
-.tools-quick-link {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.55rem 1rem;
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.tools-quick-link:hover {
-  border-color: var(--gold-accent);
-  color: var(--gold-accent);
-  transform: translateY(-2px);
-}
-
-.tools-quick-link svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* --- MAIN 50/50 SPLIT CONTAINER --- */
-.invitation-container {
+/* --- BỐ CỤC 50/50 SPLIT --- */
+.khung-thiep-moi {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
@@ -226,8 +141,8 @@ body::after {
   z-index: 1;
 }
 
-/* --- LEFT COLUMN: EDITORIAL PORTRAIT --- */
-.visual-column {
+/* --- CỘT TRÁI: ẢNH TỐT NGHIỆP CINEMATIC --- */
+.cot-hinh-anh {
   position: sticky;
   top: 0;
   height: 100vh;
@@ -235,775 +150,411 @@ body::after {
   background-color: #060709;
 }
 
-.portrait-wrapper {
+.khung-chua-anh {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.portrait-img {
+.anh-tot-nghiep {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  filter: contrast(1.03) brightness(0.96);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: contrast(1.02) brightness(0.97);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.portrait-wrapper:hover .portrait-img {
+.khung-chua-anh:hover .anh-tot-nghiep {
   transform: scale(1.02);
 }
 
-/* CSS-only Cinematic Gradient Overlays */
-.overlay-gradient-edge {
+/* Lớp gradient chuyển mượt sang nền nội dung (CSS-only) */
+.lop-gradient-phai {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; right: 0; bottom: 0;
   width: 35%;
-  background: var(--image-gradient-right);
+  background: linear-gradient(to right, transparent 50%, var(--bg-chinh) 100%);
   pointer-events: none;
   z-index: 2;
   transition: background 0.4s ease;
 }
 
-.overlay-gradient-bottom {
+.lop-gradient-duoi {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 45%;
-  background: var(--image-gradient-bottom);
-  pointer-events: none;
-  z-index: 2;
-  transition: background 0.4s ease;
-}
-
-/* Subtle Vignette */
-.overlay-vignette {
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.45);
+  left: 0; right: 0; bottom: 0;
+  height: 35%;
+  background: linear-gradient(to top, rgba(9, 10, 14, 0.8) 0%, transparent 100%);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Floating Monogram Stamp in portrait corner */
-.portrait-stamp {
+/* Dấu ấn Monogram tiết chế ở góc dưới ảnh */
+.dau-an-monogram {
   position: absolute;
   bottom: 2.5rem;
   left: 2.5rem;
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  background: rgba(9, 10, 14, 0.45);
+  gap: 0.85rem;
+  background: rgba(9, 10, 14, 0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 0.75rem 1.25rem;
-  border-radius: 40px;
-  transition: all 0.3s ease;
+  padding: 0.65rem 1.15rem;
+  border-radius: 30px;
 }
 
-.portrait-stamp:hover {
-  border-color: var(--gold-accent);
-  background: rgba(9, 10, 14, 0.65);
+.dau-an-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--vang-accent);
 }
 
-.portrait-stamp-icon {
-  width: 28px;
-  height: 28px;
-  color: var(--gold-accent);
-}
-
-.portrait-stamp-text {
+.dau-an-chu {
   display: flex;
   flex-direction: column;
 }
 
-.portrait-stamp-name {
+.dau-an-ten {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
   color: #F0F1F5;
-  font-weight: 500;
 }
 
-.portrait-stamp-class {
+.dau-an-nam {
   font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  color: var(--gold-subtle);
+  letter-spacing: 0.14em;
+  color: var(--vang-nhe);
   text-transform: uppercase;
 }
 
-/* --- RIGHT COLUMN: EDITORIAL CONTENT --- */
-.content-column {
+/* --- CỘT PHẢI: NỘI DUNG THIỆP TỐI GIẢN & NHIỀU KHOẢNG THỞ --- */
+.cot-noi-dung {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5rem 4.5rem 6rem;
-  max-width: 680px;
+  padding: 5.5rem 4.5rem 5.5rem;
+  max-width: 620px;
   position: relative;
   z-index: 2;
 }
 
-/* Ceremony Micro Tag */
-.ceremony-meta-bar {
+/* Nhãn sự kiện: "LỄ TỐT NGHIỆP" */
+.khung-nhan-su-kien {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-
-.ceremony-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-accent); /* 5% Accent Rule */
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.ceremony-tag::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--gold-accent);
-}
-
-.meta-divider {
-  width: 32px;
-  height: 1px;
-  background-color: var(--border-medium);
-}
-
-.ceremony-year {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-/* Main Name Typography */
-.graduate-title-wrap {
+  gap: 0.6rem;
   margin-bottom: 1.25rem;
 }
 
-.graduate-name {
+.nhan-chu-vang {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vang-accent); /* 5% Accent Rule */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nhan-chu-vang::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--vang-accent);
+}
+
+/* Tên chính người tốt nghiệp */
+.khoi-ten-nguoi-tot-nghiep {
+  margin-bottom: 1.25rem;
+}
+
+.ten-chinh {
   font-family: var(--font-serif);
-  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  font-size: clamp(2.75rem, 5vw, 4rem);
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 0.6rem;
+  color: var(--chu-chinh);
+  margin-bottom: 0.4rem;
 }
 
-.graduate-degree {
-  font-size: 1rem;
+.thong-tin-nganh-khoa {
+  font-size: 0.95rem;
   font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0.03em;
+  color: var(--chu-phu);
+  letter-spacing: 0.02em;
 }
 
-/* Emotional Quote */
-.ceremony-quote {
+/* Lời dẫn ngắn */
+.loi-dan-ngan {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  margin: 1.5rem 0 2.25rem;
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--gold-accent); /* 5% Accent Rule: fine line */
+  font-size: 1.12rem;
+  color: var(--chu-phu);
+  margin: 1.25rem 0 2rem;
+  padding-left: 1.15rem;
+  border-left: 1.5px solid var(--vang-accent); /* Đường chỉ mảnh tinh tế */
   line-height: 1.6;
 }
 
-/* Hairline Section Divider */
-.hairline-divider {
+/* Đường chỉ phân cách siêu mảnh */
+.chi-phan-cach {
   width: 100%;
   height: 1px;
-  background: var(--border-subtle);
-  margin: 2.25rem 0;
+  background: var(--vien-manh);
+  margin: 2rem 0;
 }
 
-/* --- EVENT METADATA GRID --- */
-.event-details-grid {
+/* --- THÔNG TIN NGÀY, GIỜ, ĐỊA ĐIỂM --- */
+.danh-sach-chi-tiet-su-kien {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.75rem 2rem;
-  margin-bottom: 2.25rem;
+  gap: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
-.detail-item {
+.muc-chi-tiet {
   display: flex;
   flex-direction: column;
 }
 
-.detail-label {
+.nhan-muc {
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
+  color: var(--chu-mo);
+  margin-bottom: 0.35rem;
 }
 
-.detail-value {
+.gia-tri-muc {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--chu-chinh);
   line-height: 1.45;
 }
 
-.detail-value.highlight-date {
+.gia-tri-ngay {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-.detail-sub {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: 0.2rem;
-}
-
-/* --- MINIMALIST COUNTDOWN --- */
-.countdown-section {
-  margin: 1.5rem 0 2.5rem;
-  padding: 1.75rem 2rem;
-  border-radius: 12px;
-  background: var(--bg-pill);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: var(--transition-theme);
-}
-
-.countdown-header {
-  display: flex;
+/* Link chữ nhỏ "Xem bản đồ ↗" */
+.link-xem-ban-do {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--vang-nhe);
+  text-decoration: none;
+  margin-top: 0.45rem;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+}
+
+.link-xem-ban-do:hover {
+  color: var(--vang-accent);
+  transform: translateX(3px);
+}
+
+/* --- LỜI MỜI CÁ NHÂN HÓA DÀNH CHO KHÁCH --- */
+.the-loi-moi-ca-nhan {
+  position: relative;
+  background: var(--bg-the);
+  border: 1px solid var(--vien-manh);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin: 1.5rem 0 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: var(--chuyen-mau);
+}
+
+/* Đường chỉ vàng 5% ở góc thẻ */
+.the-loi-moi-ca-nhan::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--vang-accent);
+}
+
+.tieu-de-loi-chao {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--chu-chinh);
+  margin-bottom: 0.85rem;
+}
+
+.diem-nhan-ten-khach {
+  color: var(--chu-chinh);
+  border-bottom: 1px solid var(--vang-accent);
+  padding-bottom: 1px;
+}
+
+.noi-dung-loi-nhan {
+  font-size: 0.95rem;
+  color: var(--chu-phu);
+  line-height: 1.65;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--vien-ro);
   margin-bottom: 1.25rem;
 }
 
-.countdown-title {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-subtle);
-}
-
-.countdown-status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
-.pulse-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--gold-accent);
-  box-shadow: 0 0 8px var(--gold-accent);
-  animation: pulse-glow 2s infinite ease-in-out;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.15); }
-}
-
-.countdown-timer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.timer-unit {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.timer-number {
-  font-family: var(--font-sans);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 300;
-  line-height: 1;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
-}
-
-.timer-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-}
-
-.timer-separator {
-  font-size: 1.5rem;
-  font-weight: 200;
-  color: var(--border-medium);
-  margin-top: -0.8rem;
-  user-select: none;
-}
-
-/* Event ongoing message */
-.countdown-completed {
-  display: none;
-  text-align: center;
-  padding: 0.75rem;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--gold-accent);
-}
-
-/* --- PERSONALIZED GUEST SECTION --- */
-.guest-invitation-card {
-  position: relative;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-  padding: 2rem 2.25rem;
-  margin: 1.5rem 0 2.5rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition-theme);
-  overflow: hidden;
-}
-
-/* Subtle corner hairline highlight */
-.guest-invitation-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 48px;
-  height: 2px;
-  background: var(--gold-accent); /* 5% Accent Rule */
-}
-
-.guest-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-subtle);
-  margin-bottom: 0.75rem;
-}
-
-.guest-greeting {
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.guest-greeting .guest-name-highlight {
-  color: var(--text-primary);
-  position: relative;
-  display: inline-block;
-}
-
-.guest-greeting .guest-name-highlight::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 100%;
-  height: 1px;
-  background: var(--gold-accent);
-  opacity: 0.6;
-}
-
-.guest-personal-message {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  font-style: normal;
-  position: relative;
-  padding-left: 1rem;
-  border-left: 1px solid var(--border-medium);
-}
-
-/* Personalized Link Copy Trigger in Guest Card */
-.guest-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.guest-signature {
-  font-family: var(--font-hand);
-  font-size: 1.6rem;
-  color: var(--text-primary);
+.chu-ky-ca-nhan {
+  font-family: var(--font-tay);
+  font-size: 1.65rem;
+  color: var(--chu-chinh);
+  text-align: right;
   opacity: 0.9;
 }
 
-.copy-guest-link-btn {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.45rem 0.85rem;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: all 0.25s ease;
+/* --- COUNTDOWN NHỎ, TINH TẾ (TYPOGRAPHY MINIMAL) --- */
+.khung-dem-nguoc-nho {
+  margin: 1rem 0 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  background: var(--bg-nhe);
+  border: 1px solid var(--vien-manh);
 }
 
-.copy-guest-link-btn:hover {
-  color: var(--text-primary);
-  border-color: var(--text-muted);
-}
-
-.copy-guest-link-btn svg {
-  width: 13px;
-  height: 13px;
-}
-
-/* --- ACTION BUTTONS (QUIET LUXURY) --- */
-.action-buttons-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.95rem 1.5rem;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-}
-
-.btn svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.25s ease;
-}
-
-/* Primary Action Button (Quiet Luxury: Dark/Light Contrast, NOT all-gold!) */
-.btn-primary {
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-  border: 1px solid var(--text-primary);
-}
-
-.btn-primary:hover {
-  background-color: transparent;
-  color: var(--text-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Secondary Action Button */
-.btn-secondary {
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-medium);
-}
-
-.btn-secondary:hover {
-  border-color: var(--gold-accent);
-  color: var(--gold-accent);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Full Width Sub Actions */
-.secondary-actions-bar {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: -1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.btn-sub {
-  flex: 1;
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  padding: 0.75rem 1rem;
-  font-size: 0.8rem;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.btn-sub:hover {
-  background: var(--bg-pill);
-  color: var(--text-primary);
-  border-color: var(--border-medium);
-}
-
-.btn-sub svg {
-  width: 14px;
-  height: 14px;
-}
-
-/* --- POLAROID MEMORY CARD (PERSONAL TOUCH) --- */
-.polaroid-section {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.polaroid-card {
-  background: #FDFDFD;
-  padding: 0.9rem 0.9rem 1.6rem;
-  border-radius: 4px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
-  transform: rotate(-1.5deg);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  max-width: 320px;
-  width: 100%;
-}
-
-.polaroid-card:hover {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-}
-
-.polaroid-image-frame {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: #EAE6DF;
-}
-
-.polaroid-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: sepia(0.08) contrast(1.02);
-}
-
-.polaroid-caption {
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
-  color: #2B2C30;
-  text-align: center;
-  margin-top: 0.85rem;
-  line-height: 1.3;
-}
-
-.polaroid-date {
-  font-family: var(--font-sans);
+.tieu-de-dem-nguoc-nho {
   font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: #7D808A;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--chu-mo);
+  margin-bottom: 0.85rem;
   text-align: center;
-  margin-top: 0.2rem;
 }
 
-/* --- FOOTER & CONTACT NOTE --- */
-.invitation-footer {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-subtle);
+.bo-so-dem-nguoc {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.phan-tu-dem-nguoc {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  color: var(--text-muted);
-  font-size: 0.78rem;
-}
-
-.contact-support {
-  line-height: 1.5;
-}
-
-.contact-support strong {
-  color: var(--text-secondary);
-}
-
-.copyright-bar {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  padding-top: 0.5rem;
 }
 
-.copyright-bar a {
-  color: var(--gold-subtle);
-  text-decoration: none;
-  transition: color 0.2s ease;
+.so-dem-nguoc {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--chu-chinh);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
-.copyright-bar a:hover {
-  color: var(--gold-accent);
+.chu-dem-nguoc {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--chu-mo);
+  margin-top: 0.4rem;
 }
 
-/* --- TOAST NOTIFICATION --- */
-.toast-notification {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: var(--bg-surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-medium);
-  padding: 0.75rem 1.4rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  box-shadow: var(--shadow-lg);
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+.dau-phan-cach-dem-nguoc {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: var(--vien-ro);
+  margin-top: -0.6rem;
+  user-select: none;
 }
 
-.toast-notification.show {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+.thong-bao-dien-ra {
+  display: none;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--vang-accent);
+  padding: 0.5rem;
 }
 
-.toast-notification svg {
-  color: var(--gold-accent);
-  width: 16px;
-  height: 16px;
+/* --- FOOTER KÍNH MỜI TỐI GIẢN --- */
+.chan-trang-thiep {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--vien-manh);
+  text-align: center;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--chu-mo);
+  text-transform: uppercase;
 }
 
-/* --- RESPONSIVE BREAKPOINTS --- */
-
-/* Tablet & Smaller Screens */
-@media (max-width: 1080px) {
-  .content-column {
-    padding: 4rem 3rem 5rem;
-  }
-}
-
-/* Mobile Screens (< 992px) */
+/* --- RESPONSIVE MOBILE (< 992px) --- */
 @media (max-width: 992px) {
-  .invitation-container {
+  .khung-thiep-moi {
     grid-template-columns: 1fr;
   }
 
-  .visual-column {
+  .cot-hinh-anh {
     position: relative;
-    height: 60vh;
-    min-height: 400px;
-    max-height: 520px;
+    height: 55vh;
+    min-height: 380px;
+    max-height: 480px;
   }
 
-  .overlay-gradient-edge {
+  .lop-gradient-phai {
     display: none;
   }
 
-  .overlay-gradient-bottom {
-    height: 50%;
-    background: var(--image-gradient-bottom);
+  .lop-gradient-duoi {
+    height: 45%;
+    background: linear-gradient(to top, var(--bg-chinh) 0%, transparent 100%);
   }
 
-  .portrait-stamp {
-    bottom: 1.5rem;
-    left: 1.5rem;
-    padding: 0.6rem 1rem;
+  .dau-an-monogram {
+    bottom: 1.25rem;
+    left: 1.25rem;
+    padding: 0.5rem 0.9rem;
   }
 
-  .content-column {
+  .cot-noi-dung {
     max-width: 100%;
-    padding: 2.5rem 1.5rem 4rem;
+    padding: 2.5rem 1.5rem 3.5rem;
   }
 
-  .floating-header {
-    top: 1rem;
+  .thanh-dieu-khien-tren {
+    top: 1.25rem;
     right: 1.25rem;
   }
 
-  .graduate-name {
+  .ten-chinh {
     font-size: 2.5rem;
   }
 
-  .event-details-grid {
+  .danh-sach-chi-tiet-su-kien {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.15rem;
   }
 
-  .action-buttons-group {
-    grid-template-columns: 1fr;
-  }
-
-  .secondary-actions-bar {
-    flex-direction: column;
-  }
-
-  .countdown-section {
-    padding: 1.25rem 1.2rem;
-  }
-
-  .timer-number {
-    font-size: 1.85rem;
-  }
-
-  .timer-separator {
-    font-size: 1.25rem;
-  }
-
-  .guest-invitation-card {
+  .the-loi-moi-ca-nhan {
     padding: 1.5rem 1.25rem;
   }
-}
 
-/* Very Small Mobile (< 380px) */
-@media (max-width: 380px) {
-  .timer-number {
-    font-size: 1.6rem;
-  }
-  .timer-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.1em;
+  .so-dem-nguoc {
+    font-size: 1.5rem;
   }
 }

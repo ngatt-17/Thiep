@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiệp Mời Lễ Tốt Nghiệp • Tạ Thị Nga</title>
 
-  <!-- SEO & Social Open Graph Meta Tags -->
   <meta name="description" content="Trân trọng kính mời bạn đến chung vui trong ngày Lễ Tốt Nghiệp của Tạ Thị Nga. Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó.">
   <meta property="og:title" content="Thiệp Mời Lễ Tốt Nghiệp • Tạ Thị Nga">
   <meta property="og:description" content="Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó. Trân trọng kính mời bạn đến chung vui cùng Nga!">
@@ -16,7 +15,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Google Fonts Preconnect -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
@@ -25,26 +24,18 @@
 </head>
 <body>
 
-  <!-- Watermark Monogram Background -->
-  <svg class="background-watermark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
-    <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" />
+  <!-- Watermark Monogram mờ ở góc nền -->
+  <svg class="watermark-nen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+    <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" />
     <text x="56" y="95" font-family="Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
     <text x="96" y="103" font-family="Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
   </svg>
 
-  <!-- Top Floating Controls (Theme Toggle & Link Helper) -->
-  <header class="floating-header" role="banner">
-    <a href="tools/link-generator.html" class="tools-quick-link" title="Công cụ quản lý & tạo link cho từng bạn bè">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-      </svg>
-      <span>Tạo link</span>
-    </a>
-
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Chuyển đổi giao diện Sáng / Tối" title="Chuyển đổi Sáng / Tối">
-      <!-- Sun Icon (Active in Dark Mode) -->
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Nút chuyển chế độ Sáng / Tối duy nhất ở góc trên bên phải -->
+  <aside class="thanh-dieu-khien-tren">
+    <button id="nut-doi-giao-dien" class="nut-doi-giao-dien" aria-label="Chuyển đổi giao diện Sáng / Tối" title="Chuyển giao diện Sáng / Tối">
+      <!-- Biểu tượng Mặt Trời (hiện khi ở Dark Mode) -->
+      <svg class="icon-mat-troi" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -55,232 +46,142 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <!-- Moon Icon (Active in Light Mode) -->
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Biểu tượng Mặt Trăng (hiện khi ở Light Mode) -->
+      <svg class="icon-trang" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
-  </header>
+  </aside>
 
-  <!-- 50/50 Split Main Grid -->
-  <main class="invitation-container">
+  <!-- Bố cục 50/50 Split Screen -->
+  <main class="khung-thiep-moi">
 
-    <!-- LEFT COLUMN: EDITORIAL CINEMATIC PORTRAIT -->
-    <aside class="visual-column" aria-label="Ảnh chân dung cử nhân">
-      <div class="portrait-wrapper">
+    <!-- 1. CỘT TRÁI: ẢNH TỐT NGHIỆP CINEMATIC -->
+    <section class="cot-hinh-anh" aria-label="Ảnh chân dung cử nhân">
+      <div class="khung-chua-anh">
         <img src="assets/images/portrait.jpg" 
              alt="Tạ Thị Nga - Lễ Tốt Nghiệp" 
-             class="portrait-img" 
-             id="main-portrait"
+             class="anh-tot-nghiep" 
              loading="eager">
         
-        <!-- CSS Gradient Overlays -->
-        <div class="overlay-gradient-edge"></div>
-        <div class="overlay-gradient-bottom"></div>
-        <div class="overlay-vignette"></div>
+        <!-- Lớp phủ Gradient mượt mà bằng CSS -->
+        <div class="lop-gradient-phai"></div>
+        <div class="lop-gradient-duoi"></div>
 
-        <!-- Floating Monogram Stamp (Lower Left) -->
-        <div class="portrait-stamp">
-          <div class="portrait-stamp-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
-              <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.8" />
-              <text x="56" y="95" font-family="'Playfair Display', Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
-              <text x="96" y="103" font-family="'Playfair Display', Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
-            </svg>
-          </div>
-          <div class="portrait-stamp-text">
-            <span class="portrait-stamp-name">Tạ Thị Nga</span>
-            <span class="portrait-stamp-class">Class of 2026</span>
+        <!-- Dấu ấn Monogram tinh tế ở góc ảnh -->
+        <div class="dau-an-monogram">
+          <svg class="dau-an-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+            <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.8" />
+            <text x="56" y="95" font-family="Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
+            <text x="96" y="103" font-family="Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
+          </svg>
+          <div class="dau-an-chu">
+            <span class="dau-an-ten">Tạ Thị Nga</span>
+            <span class="dau-an-nam">Khóa 2022 – 2026</span>
           </div>
         </div>
       </div>
-    </aside>
+    </section>
 
-    <!-- RIGHT COLUMN: EDITORIAL INVITATION CONTENT -->
-    <article class="content-column">
+    <!-- CỘT PHẢI: NỘI DUNG THIỆP TỐI GIẢN -->
+    <article class="cot-noi-dung">
 
-      <!-- Ceremony Meta Bar -->
-      <div class="ceremony-meta-bar">
-        <span class="ceremony-tag" id="cfg-tag">GRADUATION CEREMONY</span>
-        <span class="meta-divider"></span>
-        <span class="ceremony-year" id="cfg-year">CLASS OF 2026</span>
+      <!-- 2. NHÃN "LỄ TỐT NGHIỆP" -->
+      <div class="khung-nhan-su-kien">
+        <span class="nhan-chu-vang" id="nhan-su-kien">LỄ TỐT NGHIỆP</span>
       </div>
 
-      <!-- Main Graduate Name Heading -->
-      <header class="graduate-title-wrap">
-        <h1 class="graduate-name" id="cfg-name">Tạ Thị Nga</h1>
-        <div class="graduate-degree" id="cfg-title">Cử nhân Báo chí & Truyền thông</div>
+      <!-- 3. TÊN "TẠ THỊ NGA" & 4. THÔNG TIN KHÓA/NGÀNH/NĂM -->
+      <header class="khoi-ten-nguoi-tot-nghiep">
+        <h1 class="ten-chinh" id="ten-nguoi-tot-nghiep">Tạ Thị Nga</h1>
+        <div class="thong-tin-nganh-khoa" id="thong-tin-khoa-nganh">Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026</div>
       </header>
 
-      <!-- Emotional Quote -->
-      <blockquote class="ceremony-quote" id="cfg-quote">
-        "Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó."
+      <!-- Lời dẫn ngắn -->
+      <blockquote class="loi-dan-ngan" id="loi-dan">
+        Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó.
       </blockquote>
 
-      <div class="hairline-divider"></div>
+      <div class="chi-phan-cach"></div>
 
-      <!-- Event Details Grid -->
-      <section class="event-details-grid" aria-label="Thông tin chi tiết buổi lễ">
-        <div class="detail-item">
-          <span class="detail-label">NGÀY TỐT NGHIỆP</span>
-          <span class="detail-value highlight-date" id="cfg-date">Thứ Bảy, 24 Tháng 10, 2026</span>
+      <!-- 5. NGÀY, GIỜ, ĐỊA ĐIỂM & 6. LINK CHỮ NHỎ "XEM BẢN ĐỒ ↗" -->
+      <section class="danh-sach-chi-tiet-su-kien" aria-label="Thời gian và địa điểm">
+        <div class="muc-chi-tiet">
+          <span class="nhan-muc">NGÀY TỐT NGHIỆP</span>
+          <span class="gia-tri-muc gia-tri-ngay" id="hien-thi-ngay">Thứ Bảy, 24 Tháng 10, 2026</span>
         </div>
 
-        <div class="detail-item">
-          <span class="detail-label">THỜI GIAN</span>
-          <span class="detail-value" id="cfg-time">08:30 - 11:30</span>
+        <div class="muc-chi-tiet">
+          <span class="nhan-muc">THỜI GIAN</span>
+          <span class="gia-tri-muc" id="hien-thi-gio">08:30</span>
         </div>
 
-        <div class="detail-item">
-          <span class="detail-label">HỌC VIỆN / TRƯỜNG</span>
-          <span class="detail-value" id="cfg-institution">Học viện Báo chí và Tuyên truyền</span>
+        <div class="muc-chi-tiet">
+          <span class="nhan-muc">HỌC VIỆN / TRƯỜNG</span>
+          <span class="gia-tri-muc" id="hien-thi-truong">Học viện Báo chí và Tuyên truyền</span>
         </div>
 
-        <div class="detail-item">
-          <span class="detail-label">ĐỊA ĐIỂM HỘI TRƯỜNG</span>
-          <span class="detail-value" id="cfg-hall">Hội trường Lớn • Nhà A1</span>
+        <div class="muc-chi-tiet">
+          <span class="nhan-muc">HỘI TRƯỜNG</span>
+          <span class="gia-tri-muc" id="hien-thi-hoi-truong">Hội trường Lớn • Tòa nhà A1</span>
         </div>
 
-        <div class="detail-item" style="grid-column: span 2;">
-          <span class="detail-label">ĐỊA CHỈ</span>
-          <span class="detail-value" id="cfg-address">36 Xuân Thủy, Cầu Giấy, Hà Nội</span>
-        </div>
-      </section>
-
-      <!-- Minimalist Realtime Countdown -->
-      <section class="countdown-section" aria-label="Đếm ngược thời gian sự kiện">
-        <div class="countdown-header">
-          <span class="countdown-title">COUNTDOWN TO CEREMONY</span>
-          <div class="countdown-status-indicator">
-            <span class="pulse-dot"></span>
-            <span>Trực tiếp</span>
-          </div>
-        </div>
-
-        <div class="countdown-timer" id="countdown-timer">
-          <div class="timer-unit">
-            <span class="timer-number" id="timer-days">00</span>
-            <span class="timer-label">DAYS</span>
-          </div>
-          <span class="timer-separator">/</span>
-          <div class="timer-unit">
-            <span class="timer-number" id="timer-hours">00</span>
-            <span class="timer-label">HOURS</span>
-          </div>
-          <span class="timer-separator">/</span>
-          <div class="timer-unit">
-            <span class="timer-number" id="timer-mins">00</span>
-            <span class="timer-label">MINS</span>
-          </div>
-          <span class="timer-separator">/</span>
-          <div class="timer-unit">
-            <span class="timer-number" id="timer-secs">00</span>
-            <span class="timer-label">SECS</span>
-          </div>
-        </div>
-
-        <div class="countdown-completed" id="countdown-completed">
-          Buổi lễ đang diễn ra hoặc đã khép lại. Cảm ơn bạn đã luôn đồng hành cùng Nga!
+        <div class="muc-chi-tiet" style="grid-column: span 2;">
+          <span class="nhan-muc">ĐỊA CHỈ</span>
+          <span class="gia-tri-muc" id="hien-thi-dia-chi">36 Xuân Thủy, Cầu Giấy, Hà Nội</span>
+          <a href="#" id="link-xem-ban-do" class="link-xem-ban-do" target="_blank" rel="noopener noreferrer">
+            Xem bản đồ ↗
+          </a>
         </div>
       </section>
 
-      <!-- Personalized Guest Greeting & Message Card -->
-      <section class="guest-invitation-card" id="guest-card" aria-label="Lời nhắn cá nhân hóa">
-        <div class="guest-badge" id="guest-badge-text">THIỆP MỜI DÀNH RIÊNG CHO BẠN</div>
-        
-        <h2 class="guest-greeting" id="guest-greeting-text">
-          Hẹn gặp bạn nhé, <span class="guest-name-highlight">Bạn thân mến</span>
+      <!-- 7. LỜI MỜI CÁ NHÂN HÓA (Đọc từ ?guest=id) -->
+      <section class="the-loi-moi-ca-nhan" aria-label="Lời mời cá nhân">
+        <h2 class="tieu-de-loi-chao" id="tieu-de-loi-chao">
+          Hẹn gặp bạn nhé, <span class="diem-nhan-ten-khach">Bạn thân mến</span>
         </h2>
-
-        <p class="guest-personal-message" id="guest-message-text">
+        <p class="noi-dung-loi-nhan" id="noi-dung-loi-nhan">
           "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."
         </p>
-
-        <div class="guest-card-footer">
-          <div class="guest-signature" id="cfg-signature">Tạ Thị Nga</div>
-          <button type="button" class="copy-guest-link-btn js-copy-link" title="Sao chép đường link thiệp này">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>Sao chép link này</span>
-          </button>
-        </div>
+        <div class="chu-ky-ca-nhan" id="chu-ky-nguoi-moi">Tạ Thị Nga</div>
       </section>
 
-      <!-- Main Action Buttons Group -->
-      <section class="action-buttons-group" aria-label="Thao tác xác nhận và lưu lịch">
-        <a href="https://forms.google.com" id="btn-rsvp" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          <span>Xác nhận tham dự (RSVP)</span>
-        </a>
-
-        <button type="button" id="btn-calendar" class="btn btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="16" y1="2" x2="16" y2="6"></line>
-            <line x1="8" y1="2" x2="8" y2="6"></line>
-            <line x1="3" y1="10" x2="21" y2="10"></line>
-          </svg>
-          <span>Thêm vào lịch</span>
-        </button>
-      </section>
-
-      <!-- Secondary Quick Actions (Map & Share) -->
-      <div class="secondary-actions-bar">
-        <a href="#" id="btn-map" class="btn-sub" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Xem địa điểm Google Maps</span>
-        </a>
-
-        <button type="button" class="btn-sub js-copy-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
-          <span>Chia sẻ link thiệp</span>
-        </button>
-      </div>
-
-      <!-- Polaroid Memory Photo Touch -->
-      <section class="polaroid-section" aria-label="Ảnh kỷ niệm">
-        <figure class="polaroid-card">
-          <div class="polaroid-image-frame">
-            <img src="assets/images/polaroid.jpg" alt="Khoảnh khắc thanh xuân" class="polaroid-image" loading="lazy">
+      <!-- 8. COUNTDOWN NHỎ, TINH TẾ (Typography) -->
+      <section class="khung-dem-nguoc-nho" aria-label="Đếm ngược thời gian">
+        <div class="tieu-de-dem-nguoc-nho">ĐẾM NGƯỢC ĐẾN BUỔI LỄ</div>
+        <div class="bo-so-dem-nguoc" id="khung-dem-nguoc-dong">
+          <div class="phan-tu-dem-nguoc">
+            <span class="so-dem-nguoc" id="dem-nguoc-ngay">00</span>
+            <span class="chu-dem-nguoc">NGÀY</span>
           </div>
-          <figcaption>
-            <div class="polaroid-caption" id="cfg-polaroid-caption">Save the moment • Autumn 2026</div>
-            <div class="polaroid-date" id="cfg-polaroid-sub">Lưu giữ một chặng đường thanh xuân rực rỡ</div>
-          </figcaption>
-        </figure>
+          <span class="dau-phan-cach-dem-nguoc">/</span>
+          <div class="phan-tu-dem-nguoc">
+            <span class="so-dem-nguoc" id="dem-nguoc-gio">00</span>
+            <span class="chu-dem-nguoc">GIỜ</span>
+          </div>
+          <span class="dau-phan-cach-dem-nguoc">/</span>
+          <div class="phan-tu-dem-nguoc">
+            <span class="so-dem-nguoc" id="dem-nguoc-phut">00</span>
+            <span class="chu-dem-nguoc">PHÚT</span>
+          </div>
+          <span class="dau-phan-cach-dem-nguoc">/</span>
+          <div class="phan-tu-dem-nguoc">
+            <span class="so-dem-nguoc" id="dem-nguoc-giay">00</span>
+            <span class="chu-dem-nguoc">GIÂY</span>
+          </div>
+        </div>
+        <div class="thong-bao-dien-ra" id="thong-bao-dien-ra"></div>
       </section>
 
-      <!-- Footer & Host Contact -->
-      <footer class="invitation-footer">
-        <p class="contact-support">
-          <strong>Hỗ trợ đón tiếp:</strong> <span id="cfg-contact-phone">0912 345 678</span><br>
-          <span id="cfg-contact-note">Nếu bạn cần chỉ đường hoặc hỗ trợ khi đến hội trường, hãy liên hệ với Nga nhé!</span>
-        </p>
-
-        <div class="copyright-bar">
-          <span>© 2026 Tạ Thị Nga • Graduation Ceremony</span>
-          <a href="tools/link-generator.html">Quản lý link khách mời →</a>
-        </div>
+      <!-- Footer kính mời thanh lịch -->
+      <footer class="chan-trang-thiep">
+        <span>Trân trọng kính mời • Tạ Thị Nga 2026</span>
       </footer>
 
     </article>
   </main>
 
-  <!-- Config & App Script Execution -->
+  <!-- Script Cấu Hình & Logic -->
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
 </body>
