@@ -38,7 +38,7 @@ Thiep/
 ├── assets/
 │   └── images/
 │       ├── portrait.jpg        # Ảnh chân dung tốt nghiệp của Nga
-│       └── monogram.svg        # Editorial Monogram "TN"
+│       └── signature.svg       # Custom Wordmark Chữ ký "soona"
 └── README.md                   # Hướng dẫn sử dụng
 ```
 

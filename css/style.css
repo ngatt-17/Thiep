@@ -198,46 +198,23 @@ body {
   z-index: 2;
 }
 
-/* Dấu ấn Monogram tinh tế ở góc dưới ảnh */
-.dau-an-monogram {
+/* Chữ ký cá nhân hóa cách điệu "soona" ở góc ảnh chân dung */
+.chu-ky-soona {
   position: absolute;
   bottom: 2rem;
-  left: 2rem;
+  left: 2.25rem;
   z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: rgba(24, 32, 46, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 0.55rem 1rem;
-  border-radius: 30px;
+  pointer-events: none;
+  user-select: none;
 }
 
-.dau-an-icon {
-  width: 22px;
-  height: 22px;
-  color: #FFFFFF;
-}
-
-.dau-an-chu {
-  display: flex;
-  flex-direction: column;
-}
-
-.dau-an-ten {
-  font-family: var(--font-serif);
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  color: #FFFFFF;
-}
-
-.dau-an-nam {
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  color: #D3E0F0;
-  text-transform: uppercase;
+.anh-chu-ky-soona {
+  width: 140px;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* --- CỘT PHẢI: NỘI DUNG THIỆP GỌN GÀNG, LIỀN MẠCH, NHIỀU KHOẢNG THỞ CÓ CHỦ ĐÍCH --- */
@@ -534,10 +511,13 @@ body {
     background: linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);
   }
 
-  .dau-an-monogram {
-    bottom: 1rem;
-    left: 1rem;
-    padding: 0.45rem 0.85rem;
+  .chu-ky-soona {
+    bottom: 1.15rem;
+    left: 1.25rem;
+  }
+
+  .anh-chu-ky-soona {
+    width: 110px;
   }
 
   .cot-noi-dung {
