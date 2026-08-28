@@ -209,10 +209,10 @@ body {
 }
 
 .anh-chu-ky-soona {
-  width: 140px;
+  width: 175px;
   height: auto;
   display: block;
-  opacity: 0.92;
+  opacity: 0.95;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
