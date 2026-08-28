@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công Cụ Quản Lý & Tạo Link Khách Mời • Tạ Thị Nga</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #090A0E;
+      --bg-surface: #111319;
+      --bg-card: #151821;
+      --bg-elevated: #1B1E29;
+      --text-primary: #F0F1F5;
+      --text-secondary: #9DA2AF;
+      --text-muted: #636A78;
+      --gold-accent: #D4AF37;
+      --gold-subtle: #C5A880;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.15);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg-main: #FAF8F5;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #F2EFEA;
+      --text-primary: #15171C;
+      --text-secondary: #585E6B;
+      --text-muted: #878E9C;
+      --gold-accent: #B08B32;
+      --gold-subtle: #A37E28;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-medium: rgba(0, 0, 0, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 3rem 1.5rem 5rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Header Bar */
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--gold-accent);
+    }
+
+    .header-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .header-sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    /* Grid Form & Overview */
+    .generator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-title .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-accent);
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.25s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--gold-accent);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    /* Live Preview Box */
+    .link-preview-box {
+      background: var(--bg-elevated);
+      border: 1px dashed var(--border-medium);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .preview-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-subtle);
+      margin-bottom: 0.3rem;
+    }
+
+    .preview-url {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      padding: 0.7rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: var(--bg-main);
+      border-color: var(--text-primary);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    .btn-gold {
+      background: transparent;
+      color: var(--gold-accent);
+      border-color: var(--gold-accent);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-accent);
+      color: #090A0E;
+    }
+
+    /* Guest Table List */
+    .table-header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      width: 280px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--gold-accent);
+    }
+
+    .table-container {
+      overflow-x: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: var(--bg-elevated);
+      padding: 0.9rem 1.25rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background-color: rgba(255, 255, 255, 0.015);
+    }
+
+    .guest-name-cell {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .guest-slug-cell {
+      font-family: monospace;
+      color: var(--gold-subtle);
+      font-size: 0.78rem;
+    }
+
+    .guest-message-cell {
+      color: var(--text-secondary);
+      max-width: 320px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .action-links {
+      display: flex;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .btn-action-sm {
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-sm:hover {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-medium);
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .generator-grid {
+        grid-template-columns: 1fr;
+      }
+      .search-input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Header -->
+    <header class="header-bar">
+      <div>
+        <a href="../index.html" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Quay lại thiệp mời
+        </a>
+        <h1 class="header-title" style="margin-top: 0.5rem;">Quản Lý Link Khách Mời Cá Nhân Hóa</h1>
+        <p class="header-sub">Tạo đường dẫn riêng cho từng bạn bè • Tự động đổi tiếng Việt sang slug ID • Xuất dữ liệu guests.json</p>
+      </div>
+
+      <button id="theme-toggle" class="btn btn-secondary" style="padding: 0.5rem 0.85rem;" title="Đổi giao diện">
+        ☀️ / 🌙
+      </button>
+    </header>
+
+    <!-- Generator & Live Preview Grid -->
+    <section class="generator-grid">
+      
+      <!-- Input Form -->
+      <div class="card">
+        <h2 class="card-title"><span class="dot"></span> Thêm Bạn Bè Mới</h2>
+        
+        <div class="form-group">
+          <label class="form-label" for="input-name">Họ và tên khách mời</label>
+          <input type="text" id="input-name" class="form-input" placeholder="Ví dụ: Hoàng Minh Châu" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-slug">Slug ID cá nhân hóa (Tự động tạo)</label>
+          <input type="text" id="input-slug" class="form-input" placeholder="hoang-minh-chau">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-message">Lời nhắn riêng dành cho bạn ấy</label>
+          <textarea id="input-message" class="form-textarea" placeholder="Nga rất vui nếu có bạn đến chung vui trong ngày đặc biệt này ❤️"></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" id="btn-add-guest" class="btn btn-primary">
+            + Thêm vào danh sách tạm thời
+          </button>
+          <button type="button" id="btn-clear-form" class="btn btn-secondary">
+            Làm mới form
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Link Preview & Instructions -->
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h2 class="card-title"><span class="dot"></span> Xem Trước Link Thiệp Riêng</h2>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Đường link này sẽ tự động tải tên bạn bè và lời nhắn riêng khi họ mở thiệp trên điện thoại hoặc máy tính.
+          </p>
+
+          <div class="link-preview-box">
+            <div class="preview-label">Đường dẫn thiệp cá nhân hóa:</div>
+            <div class="preview-url" id="live-url-display">Đang tạo...</div>
+          </div>
+
+          <div class="btn-row" style="margin-top: 0;">
+            <button type="button" id="btn-copy-live-link" class="btn btn-gold">
+              📋 Sao chép link này ngay
+            </button>
+            <a href="#" id="btn-test-live-link" target="_blank" class="btn btn-secondary">
+              ↗ Mở xem thử thiệp
+            </a>
+          </div>
+        </div>
+
+        <!-- Helpful Tip -->
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle); font-size: 0.8rem; color: var(--text-muted);">
+          💡 <strong>Mẹo:</strong> Sau khi thêm bạn mới, hãy bấm nút <strong>"Tải về guests.json"</strong> bên dưới và copy đè vào thư mục dự án để lưu vĩnh viễn trên GitHub.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Guest Database List Section -->
+    <section>
+      <div class="table-header-controls">
+        <div>
+          <h2 style="font-size: 1.2rem; font-weight: 600;">Danh Sách Khách Mời Hiện Có (<span id="guest-count">0</span>)</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Dữ liệu tải từ file guests.json và bộ nhớ trình duyệt của bạn</p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <input type="text" id="search-input" class="search-input" placeholder="🔍 Tìm kiếm theo tên bạn bè...">
+          <button type="button" id="btn-export-json" class="btn btn-gold" title="Tải file guests.json mới nhất">
+            💾 Tải về guests.json
+          </button>
+        </div>
+      </div>
+
+      <!-- Table Container -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Họ và Tên</th>
+              <th>Slug ID</th>
+              <th>Lời Nhắn Cá Nhân</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody id="guest-table-body">
+            <tr>
+              <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 2rem;">Đang tải danh sách...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Đã sao chép!</div>
+
+  <!-- Logic Script -->
+  <script>
+    (function() {
+      'use strict';
+
+      // --- Theme Handling ---
+      const savedTheme = localStorage.getItem('nga_invitation_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('nga_invitation_theme', next);
+      });
+
+      // --- State ---
+      let guestsList = [];
+      const LOCAL_STORAGE_KEY = 'nga_custom_guests_cache';
+
+      // Elements
+      const inputName = document.getElementById('input-name');
+      const inputSlug = document.getElementById('input-slug');
+      const inputMessage = document.getElementById('input-message');
+      const liveUrlDisplay = document.getElementById('live-url-display');
+      const btnCopyLiveLink = document.getElementById('btn-copy-live-link');
+      const btnTestLiveLink = document.getElementById('btn-test-live-link');
+      const btnAddGuest = document.getElementById('btn-add-guest');
+      const btnClearForm = document.getElementById('btn-clear-form');
+      const btnExportJson = document.getElementById('btn-export-json');
+      const searchInput = document.getElementById('search-input');
+      const tableBody = document.getElementById('guest-table-body');
+      const guestCount = document.getElementById('guest-count');
+      const toast = document.getElementById('toast');
+
+      // Helper: Base Invitation URL
+      function getBaseInvitationUrl() {
+        const loc = window.location;
+        // Strip out /tools/link-generator.html to get main index.html url
+        let basePath = loc.pathname.replace(/\/tools\/[^\/]*$/, '/');
+        if (!basePath.endsWith('/')) basePath += '/';
+        return `${loc.origin}${basePath}`;
+      }
+
+      // Convert Vietnamese with diacritics to clean slug
+      function convertVietnameseToSlug(str) {
+        if (!str) return '';
+        return str
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '') // Remove accents
+          .replace(/[đĐ]/g, 'd')
+          .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+          .trim()
+          .replace(/\s+/g, '-') // Replace spaces with -
+          .replace(/-+/g, '-');
+      }
+
+      // Live URL Preview Update
+      function updateLivePreview() {
+        const slug = inputSlug.value.trim() || convertVietnameseToSlug(inputName.value.trim()) || 'ten-ban-be';
+        const fullUrl = `${getBaseInvitationUrl()}?guest=${slug}`;
+        liveUrlDisplay.textContent = fullUrl;
+        btnTestLiveLink.href = fullUrl;
+      }
+
+      inputName.addEventListener('input', () => {
+        inputSlug.value = convertVietnameseToSlug(inputName.value);
+        updateLivePreview();
+      });
+
+      inputSlug.addEventListener('input', () => {
+        updateLivePreview();
+      });
+
+      // Show Toast Notification
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      // Copy Text Helper
+      async function copyText(text) {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          showToast('Đã sao chép đường link vào bộ nhớ tạm!');
+        } catch (err) {
+          showToast('Không thể sao chép tự động. Vui lòng copy thủ công.');
+        }
+      }
+
+      btnCopyLiveLink.addEventListener('click', () => {
+        copyText(liveUrlDisplay.textContent);
+      });
+
+      // Load initial guests data from ../guests.json
+      async function loadGuests() {
+        try {
+          const res = await fetch('../guests.json');
+          if (res.ok) {
+            guestsList = await res.json();
+          }
+        } catch (e) {
+          console.warn('Could not fetch ../guests.json:', e);
+        }
+
+        // Merge with local storage cached additions if any
+        const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (cached) {
+          try {
+            const localGuests = JSON.parse(cached);
+            localGuests.forEach(localG => {
+              if (!guestsList.some(g => g.id === localG.id)) {
+                guestsList.unshift(localG);
+              }
+            });
+          } catch(err) {}
+        }
+
+        renderTable();
+        updateLivePreview();
+      }
+
+      // Render table
+      function renderTable(filterQuery = '') {
+        const query = filterQuery.toLowerCase().trim();
+        const filtered = guestsList.filter(g => 
+          g.name.toLowerCase().includes(query) || 
+          (g.id && g.id.toLowerCase().includes(query)) ||
+          (g.message && g.message.toLowerCase().includes(query))
+        );
+
+        guestCount.textContent = filtered.length;
+
+        if (filtered.length === 0) {
+          tableBody.innerHTML = `
+            <tr>
+              <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                Không tìm thấy khách mời nào phù hợp.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tableBody.innerHTML = filtered.map(guest => {
+          const personalUrl = `${getBaseInvitationUrl()}?guest=${guest.id}`;
+          return `
+            <tr>
+              <td class="guest-name-cell">${escapeHTML(guest.name)}</td>
+              <td class="guest-slug-cell">${escapeHTML(guest.id)}</td>
+              <td class="guest-message-cell">${escapeHTML(guest.message)}</td>
+              <td>
+                <div class="action-links">
+                  <button type="button" class="btn-action-sm" onclick="window.copyGuestLink('${personalUrl}')">
+                    📋 Copy Link
+                  </button>
+                  <a href="${personalUrl}" target="_blank" class="btn-action-sm">
+                    ↗ Xem
+                  </a>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      window.copyGuestLink = function(url) {
+        copyText(url);
+      };
+
+      function escapeHTML(str) {
+        if (!str) return '';
+        return str.replace(/[&<>"']/g, m => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[m]));
+      }
+
+      // Add guest
+      btnAddGuest.addEventListener('click', () => {
+        const name = inputName.value.trim();
+        const slug = inputSlug.value.trim() || convertVietnameseToSlug(name);
+        const message = inputMessage.value.trim() || "Nga rất vui nếu có bạn đến chung vui trong ngày đặc biệt này ❤️";
+
+        if (!name) {
+          alert('Vui lòng nhập họ và tên của khách mời!');
+          inputName.focus();
+          return;
+        }
+
+        // Check if ID exists
+        const existingIndex = guestsList.findIndex(g => g.id === slug);
+        const newGuest = { id: slug, name, message };
+
+        if (existingIndex >= 0) {
+          guestsList[existingIndex] = newGuest;
+        } else {
+          guestsList.unshift(newGuest);
+        }
+
+        // Save to localStorage
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(guestsList));
+
+        renderTable(searchInput.value);
+        showToast(`Đã thêm bạn "${name}" vào danh sách!`);
+
+        // Clear input form
+        inputName.value = '';
+        inputSlug.value = '';
+        inputMessage.value = '';
+        updateLivePreview();
+      });
+
+      btnClearForm.addEventListener('click', () => {
+        inputName.value = '';
+        inputSlug.value = '';
+        inputMessage.value = '';
+        updateLivePreview();
+      });
+
+      // Search filter
+      searchInput.addEventListener('input', () => {
+        renderTable(searchInput.value);
+      });
+
+      // Export JSON file
+      btnExportJson.addEventListener('click', () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(guestsList, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", "guests.json");
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+        showToast('Đã tải file guests.json về máy của bạn!');
+      });
+
+      // Initialize
+      loadGuests();
+
+    })();
+  </script>
+</body>
+</html>
