@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +10,29 @@
   <meta property="og:description" content="Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó. Trân trọng kính mời bạn đến chung vui cùng Nga!">
   <meta property="og:image" content="assets/images/portrait.jpg">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#090A0E">
+  <meta name="theme-color" content="#F6F8FC">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts Hỗ trợ đầy đủ Unicode & Dấu Tiếng Việt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=vietnamese" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Watermark Monogram mờ ở góc nền -->
-  <svg class="watermark-nen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-    <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1" stroke-opacity="0.15" />
-    <text x="56" y="95" font-family="Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
-    <text x="96" y="103" font-family="Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
-  </svg>
-
   <!-- Nút chuyển chế độ Sáng / Tối duy nhất ở góc trên bên phải -->
   <aside class="thanh-dieu-khien-tren">
-    <button id="nut-doi-giao-dien" class="nut-doi-giao-dien" aria-label="Chuyển đổi giao diện Sáng / Tối" title="Chuyển giao diện Sáng / Tối">
-      <!-- Biểu tượng Mặt Trời (hiện khi ở Dark Mode) -->
+    <button id="nut-doi-giao-dien" class="nut-doi-giao-dien" aria-label="Chuyển sang giao diện tối" title="Chuyển chế độ Sáng / Tối">
+      <!-- Biểu tượng Mặt Trăng (hiển thị khi đang ở Light Mode) -->
+      <svg class="icon-trang" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <!-- Biểu tượng Mặt Trời (hiển thị khi đang ở Dark Mode) -->
       <svg class="icon-mat-troi" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -46,34 +44,30 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <!-- Biểu tượng Mặt Trăng (hiện khi ở Light Mode) -->
-      <svg class="icon-trang" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
     </button>
   </aside>
 
   <!-- Bố cục 50/50 Split Screen -->
   <main class="khung-thiep-moi">
 
-    <!-- 1. CỘT TRÁI: ẢNH TỐT NGHIỆP CINEMATIC -->
-    <section class="cot-hinh-anh" aria-label="Ảnh chân dung cử nhân">
+    <!-- CỘT TRÁI: ẢNH TỐT NGHIỆP CINEMATIC -->
+    <section class="cot-hinh-anh" aria-label="Ảnh tốt nghiệp">
       <div class="khung-chua-anh">
         <img src="assets/images/portrait.jpg" 
              alt="Tạ Thị Nga - Lễ Tốt Nghiệp" 
              class="anh-tot-nghiep" 
              loading="eager">
         
-        <!-- Lớp phủ Gradient mượt mà bằng CSS -->
+        <!-- Lớp gradient chuyển nền mềm mại -->
         <div class="lop-gradient-phai"></div>
         <div class="lop-gradient-duoi"></div>
 
-        <!-- Dấu ấn Monogram tinh tế ở góc ảnh -->
+        <!-- Dấu ấn Monogram kín đáo ở góc dưới ảnh -->
         <div class="dau-an-monogram">
           <svg class="dau-an-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
             <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.8" />
-            <text x="56" y="95" font-family="Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
-            <text x="96" y="103" font-family="Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
+            <text x="56" y="95" font-family="'Playfair Display', Georgia, serif" font-size="52" fill="currentColor" text-anchor="middle">T</text>
+            <text x="96" y="103" font-family="'Playfair Display', Georgia, serif" font-size="50" fill="currentColor" text-anchor="middle">N</text>
           </svg>
           <div class="dau-an-chu">
             <span class="dau-an-ten">Tạ Thị Nga</span>
@@ -83,70 +77,62 @@
       </div>
     </section>
 
-    <!-- CỘT PHẢI: NỘI DUNG THIỆP TỐI GIẢN -->
+    <!-- CỘT PHẢI: NỘI DUNG THIỆP GỌN GÀNG, LIỀN MẠCH -->
     <article class="cot-noi-dung">
 
-      <!-- 2. NHÃN "LỄ TỐT NGHIỆP" -->
+      <!-- 1. LỄ TỐT NGHIỆP -->
       <div class="khung-nhan-su-kien">
-        <span class="nhan-chu-vang" id="nhan-su-kien">LỄ TỐT NGHIỆP</span>
+        <span class="nhan-chu-accent" id="nhan-su-kien">LỄ TỐT NGHIỆP</span>
       </div>
 
-      <!-- 3. TÊN "TẠ THỊ NGA" & 4. THÔNG TIN KHÓA/NGÀNH/NĂM -->
+      <!-- 2. TẠ THỊ NGA & 3. THÔNG TIN KHÓA/NGÀNH -->
       <header class="khoi-ten-nguoi-tot-nghiep">
         <h1 class="ten-chinh" id="ten-nguoi-tot-nghiep">Tạ Thị Nga</h1>
         <div class="thong-tin-nganh-khoa" id="thong-tin-khoa-nganh">Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026</div>
       </header>
 
-      <!-- Lời dẫn ngắn -->
+      <!-- 4. CÂU QUOTE NGẮN -->
       <blockquote class="loi-dan-ngan" id="loi-dan">
         Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó.
       </blockquote>
 
-      <div class="chi-phan-cach"></div>
+      <!-- 5. NGAY SAU ĐÓ: LỜI CHÀO CÁ NHÂN HÓA (ĐIỂM NHẤN THỊ GIÁC QUAN TRỌNG) -->
+      <section class="the-loi-moi-ca-nhan" aria-label="Lời mời cá nhân hóa">
+        <div class="loi-chao-nho">Hẹn gặp bạn nhé,</div>
+        <div class="ten-khach-moi" id="ten-khach-moi">Bạn thân mến</div>
+        <p class="noi-dung-loi-nhan" id="noi-dung-loi-nhan">
+          "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."
+        </p>
+      </section>
 
-      <!-- 5. NGÀY, GIỜ, ĐỊA ĐIỂM & 6. LINK CHỮ NHỎ "XEM BẢN ĐỒ ↗" -->
-      <section class="danh-sach-chi-tiet-su-kien" aria-label="Thời gian và địa điểm">
-        <div class="muc-chi-tiet">
-          <span class="nhan-muc">NGÀY TỐT NGHIỆP</span>
-          <span class="gia-tri-muc gia-tri-ngay" id="hien-thi-ngay">Thứ Bảy, 24 Tháng 10, 2026</span>
+      <!-- 6, 7, 8. NGÀY, THỜI GIAN & ĐỊA ĐIỂM -->
+      <section class="khung-thong-tin-su-kien" aria-label="Thông tin thời gian và địa điểm">
+        <div class="dong-thong-tin-ngang">
+          <div class="muc-chi-tiet">
+            <span class="nhan-muc">NGÀY TỐT NGHIỆP</span>
+            <span class="gia-tri-muc gia-tri-ngay" id="hien-thi-ngay">Thứ Bảy, 24 Tháng 10, 2026</span>
+          </div>
+
+          <div class="muc-chi-tiet">
+            <span class="nhan-muc">THỜI GIAN</span>
+            <span class="gia-tri-muc" id="hien-thi-gio">08:30</span>
+          </div>
         </div>
 
         <div class="muc-chi-tiet">
-          <span class="nhan-muc">THỜI GIAN</span>
-          <span class="gia-tri-muc" id="hien-thi-gio">08:30</span>
-        </div>
-
-        <div class="muc-chi-tiet">
-          <span class="nhan-muc">HỌC VIỆN / TRƯỜNG</span>
-          <span class="gia-tri-muc" id="hien-thi-truong">Học viện Báo chí và Tuyên truyền</span>
-        </div>
-
-        <div class="muc-chi-tiet">
-          <span class="nhan-muc">HỘI TRƯỜNG</span>
-          <span class="gia-tri-muc" id="hien-thi-hoi-truong">Hội trường Lớn • Tòa nhà A1</span>
-        </div>
-
-        <div class="muc-chi-tiet" style="grid-column: span 2;">
-          <span class="nhan-muc">ĐỊA CHỈ</span>
-          <span class="gia-tri-muc" id="hien-thi-dia-chi">36 Xuân Thủy, Cầu Giấy, Hà Nội</span>
+          <span class="nhan-muc">ĐỊA ĐIỂM</span>
+          <span class="gia-tri-muc" id="hien-thi-dia-diem">Hội trường Lớn • Tòa nhà A1, Học viện Báo chí và Tuyên truyền</span>
+          <span class="dia-chi-phu" id="hien-thi-dia-chi">36 Xuân Thủy, Cầu Giấy, Hà Nội</span>
+          <!-- 9. LINK CHỮ NHỎ: XEM BẢN ĐỒ ↗ -->
           <a href="#" id="link-xem-ban-do" class="link-xem-ban-do" target="_blank" rel="noopener noreferrer">
             Xem bản đồ ↗
           </a>
         </div>
       </section>
 
-      <!-- 7. LỜI MỜI CÁ NHÂN HÓA (Đọc từ ?guest=id) -->
-      <section class="the-loi-moi-ca-nhan" aria-label="Lời mời cá nhân">
-        <h2 class="tieu-de-loi-chao" id="tieu-de-loi-chao">
-          Hẹn gặp bạn nhé, <span class="diem-nhan-ten-khach">Bạn thân mến</span>
-        </h2>
-        <p class="noi-dung-loi-nhan" id="noi-dung-loi-nhan">
-          "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."
-        </p>
-        <div class="chu-ky-ca-nhan" id="chu-ky-nguoi-moi">Tạ Thị Nga</div>
-      </section>
+      <div class="chi-phan-cach-nhe"></div>
 
-      <!-- 8. COUNTDOWN NHỎ, TINH TẾ (Typography) -->
+      <!-- 10. COUNTDOWN NHỎ Ở CUỐI -->
       <section class="khung-dem-nguoc-nho" aria-label="Đếm ngược thời gian">
         <div class="tieu-de-dem-nguoc-nho">ĐẾM NGƯỢC ĐẾN BUỔI LỄ</div>
         <div class="bo-so-dem-nguoc" id="khung-dem-nguoc-dong">

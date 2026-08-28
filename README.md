@@ -1,24 +1,29 @@
 # 🎓 Thiệp Mời Lễ Tốt Nghiệp Cá Nhân Hóa • Tạ Thị Nga
 
-Website thiệp mời tốt nghiệp cá nhân hóa phong cách **Quiet Luxury & Editorial Cinematic**, thiết kế tối giản, thanh lịch, 100% tiếng Việt và sẵn sàng deploy trực tiếp lên **GitHub Pages**.
+Website thiệp mời tốt nghiệp cá nhân hóa phong cách **Light Blue Quiet Luxury**, thiết kế tối giản, thanh lịch, airy, ấm áp và sẵn sàng deploy trực tiếp lên **GitHub Pages**.
 
 ---
 
-## 🌟 9 Thành Phần Cốt Lõi Trên Giao Diện
+## 🌟 Bố Cục Nội Dung Mới & Điểm Nhấn
 
-1. **Ảnh tốt nghiệp**: Bố cục 50/50 cột trái trên máy tính (hoặc phía trên trên điện thoại), xử lý cinematic bằng CSS.
-2. **Nhãn "LỄ TỐT NGHIỆP"**: Điểm nhấn chữ vàng Champagne tinh tế.
-3. **Tên chính "Tạ Thị Nga"**: Typography font Serif cổ điển, sang trọng.
-4. **Thông tin khóa / ngành / năm**: Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026.
-5. **Thời gian & Địa điểm**: Ngày, giờ, hội trường, địa chỉ chi tiết.
-6. **Link chữ nhỏ "Xem bản đồ ↗"**: Tối giản, thanh lịch, mở Google Maps chỉ đường.
-7. **Lời mời cá nhân hóa**: Tự động hiển thị *"Hẹn gặp bạn nhé, [Tên khách]"* cùng lời nhắn riêng từ file `guests.json`.
-8. **Countdown nhỏ, tinh tế**: Bộ đếm ngày, giờ, phút, giây phong cách typography thanh mảnh.
-9. **Nút chuyển chế độ Sáng / Tối**: Nút toggle ☀️ / 🌙 ở góc trên bên phải, lưu lựa chọn vào `localStorage`.
+1. **LỄ TỐT NGHIỆP**: Nhãn micro-tag xanh thanh lịch.
+2. **Tên chính "Tạ Thị Nga"**: Typography font Serif Display trang trọng, nổi bật.
+3. **Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026**: Thông tin ngắn gọn.
+4. **Câu quote ngắn**: *"Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó."*
+5. **Khối cá nhân hóa ngay phía trên**:
+   - Dòng chào: *Hẹn gặp bạn nhé,*
+   - **TÊN KHÁCH MỜI**: Điểm nhấn thị giác quan trọng với font Serif Display lớn và màu xanh accent.
+   - Lời nhắn cá nhân riêng từ `guests.json`.
+6. **Ngày tốt nghiệp**: Nổi bật, dễ đọc.
+7. **Thời gian**: Giờ đón khách & diễn ra.
+8. **Địa điểm**: Hội trường & học viện.
+9. **Link chữ nhỏ "Xem bản đồ ↗"**: Mở Google Maps chỉ đường.
+10. **Countdown nhỏ, tinh tế**: Bộ đếm typography tối giản ở cuối trang.
+11. **Nút chuyển chế độ Sáng / Tối**: ☀️ / 🌙 ở góc trên bên phải (Mặc định là giao diện **Light Blue Quiet Luxury** thanh lịch).
 
 ---
 
-## 📁 Cấu Trúc Thư Mục Tinh Gọn
+## 📁 Cấu Trúc Thư Mục
 
 ```text
 Thiep/
@@ -26,13 +31,14 @@ Thiep/
 ├── guests.json                 # Danh sách khách mời & lời nhắn cá nhân
 ├── favicon.svg                 # Biểu tượng monogram website
 ├── css/
-│   └── style.css               # Hệ thống CSS Quiet Luxury & Responsive
+│   └── style.css               # Hệ thống CSS Light Blue Quiet Luxury & Responsive
 ├── js/
 │   ├── config.js               # Cấu hình thông tin sự kiện
 │   └── app.js                  # Logic đọc URL ?guest=id, countdown & theme
 ├── assets/
 │   └── images/
-│       └── portrait.jpg        # Ảnh chân dung tốt nghiệp của Nga
+│       ├── portrait.jpg        # Ảnh chân dung tốt nghiệp của Nga
+│       └── monogram.svg        # Editorial Monogram "TN"
 └── README.md                   # Hướng dẫn sử dụng
 ```
 
@@ -45,7 +51,7 @@ Thiep/
   ```text
   assets/images/portrait.jpg
   ```
-- *Website đã thiết lập sẵn `object-fit: cover` và gradient overlay chuyển mượt bằng CSS, tự động căn chỉnh hoàn hảo.*
+- *Website đã thiết lập sẵn `object-fit: cover` và gradient overlay chuyển mượt bằng CSS sang nền xanh sáng, tự động căn chỉnh hoàn hảo.*
 
 ---
 
@@ -58,8 +64,7 @@ const THONG_TIN_SU_KIEN = {
     ten: "Tạ Thị Nga",
     nhanSuKien: "LỄ TỐT NGHIỆP",
     chuyenNganhKhoa: "Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026",
-    loiDan: "Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó.",
-    chuKy: "Tạ Thị Nga"
+    loiDan: "Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó."
   },
 
   thoiGian: {
@@ -69,8 +74,7 @@ const THONG_TIN_SU_KIEN = {
   },
 
   diaDiem: {
-    truong: "Học viện Báo chí và Tuyên truyền",
-    hoiTruong: "Hội trường Lớn • Tòa nhà A1",
+    tenDiaDiem: "Hội trường Lớn • Tòa nhà A1, Học viện Báo chí và Tuyên truyền",
     diaChi: "36 Xuân Thủy, Cầu Giấy, Hà Nội",
     linkBanDo: "https://maps.google.com/?q=..."
   }
@@ -80,7 +84,7 @@ const THONG_TIN_SU_KIEN = {
 ---
 
 ### 3. Quản Lý Danh Sách Khách Mời Trong `guests.json`
-Mở file [`guests.json`](file:///c:/Users/Admin/Downloads/Thiep/guests.json) và thêm người nhận thiệp:
+Mở file [`guests.json`](file:///c:/Users/Admin/Downloads/Thiep/guests.json) và thêm bạn bè:
 
 ```json
 [
@@ -97,11 +101,12 @@ Mở file [`guests.json`](file:///c:/Users/Admin/Downloads/Thiep/guests.json) v�
 ]
 ```
 
-#### Cách tạo link riêng gửi cho từng người:
-Chỉ cần thêm `?guest=id` vào sau địa chỉ website của bạn:
+#### Cách gửi link riêng cho từng người:
+Chỉ cần thêm `?guest=id` vào sau địa chỉ website:
 - Gửi bạn A: `https://ngatt-17.github.io/Thiep/?guest=nguyen-van-a`
 - Gửi bạn B: `https://ngatt-17.github.io/Thiep/?guest=tran-thi-b`
-- Khi truy cập không có `?guest=...` hoặc id không có trong danh sách, website sẽ tự động hiển thị lời mời mặc định thân thương.
+- Khi người nhận mở link, ngay ở nửa trên của thiệp họ sẽ thấy ngay dòng chào trang trọng dành riêng cho chính mình!
+- Nếu truy cập không có `?guest=...`, website tự động hiển thị lời mời mặc định *"Bạn thân mến"*.
 
 ---
 
@@ -111,7 +116,7 @@ Mỗi khi bạn sửa đổi file `guests.json` hoặc thông tin sự kiện, c
 
 ```bash
 git add .
-git commit -m "Cập nhật danh sách khách mời"
+git commit -m "Cập nhật thiệp mời"
 git push origin main
 ```
 

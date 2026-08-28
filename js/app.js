@@ -1,28 +1,26 @@
 /**
  * THIỆP MỜI LỄ TỐT NGHIỆP • TẠ THỊ NGA
- * Logic tối giản, đọc tham số ?guest=id từ URL và đếm ngược thời gian thực.
+ * Phong cách Light Blue Quiet Luxury • Cá nhân hóa qua URL ?guest=id
  */
 
 (function () {
   'use strict';
 
-  // --- 1. CHUYỂN ĐỔI CHẾ ĐỘ SÁNG / TỐI ---
+  // --- 1. CHUYỂN ĐỔI CHẾ ĐỘ SÁNG / TỐI (MẶC ĐỊNH: SÁNG) ---
   const THEME_STORAGE_KEY = 'thiep_nga_theme';
 
   function layGiaoDien() {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
-    }
-    return 'dark'; // Mặc định: Dark Luxury
+    // Mặc định là LIGHT MODE theo yêu cầu thiết kế mới
+    return 'light';
   }
 
   function apDungGiaoDien(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     const btn = document.getElementById('nut-doi-giao-dien');
     if (btn) {
-      btn.setAttribute('aria-label', theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối');
+      btn.setAttribute('aria-label', theme === 'light' ? 'Chuyển sang giao diện tối' : 'Chuyển sang giao diện sáng');
     }
   }
 
@@ -31,8 +29,8 @@
     const btn = document.getElementById('nut-doi-giao-dien');
     if (btn) {
       btn.addEventListener('click', () => {
-        const cur = document.documentElement.getAttribute('data-theme') || 'dark';
-        const next = cur === 'dark' ? 'light' : 'dark';
+        const cur = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = cur === 'light' ? 'dark' : 'light';
         apDungGiaoDien(next);
         localStorage.setItem(THEME_STORAGE_KEY, next);
       });
@@ -48,15 +46,12 @@
     ganChu('ten-nguoi-tot-nghiep', cfg.nguoiTotNghiep.ten);
     ganChu('thong-tin-khoa-nganh', cfg.nguoiTotNghiep.chuyenNganhKhoa);
     ganChu('loi-dan', cfg.nguoiTotNghiep.loiDan);
-    ganChu('chu-ky-nguoi-moi', cfg.nguoiTotNghiep.chuKy);
 
     ganChu('hien-thi-ngay', cfg.thoiGian.ngayHienThi);
     ganChu('hien-thi-gio', cfg.thoiGian.gioHienThi);
-    ganChu('hien-thi-truong', cfg.diaDiem.truong);
-    ganChu('hien-thi-hoi-truong', cfg.diaDiem.hoiTruong);
+    ganChu('hien-thi-dia-diem', cfg.diaDiem.tenDiaDiem);
     ganChu('hien-thi-dia-chi', cfg.diaDiem.diaChi);
 
-    // Link chữ nhỏ "Xem bản đồ ↗"
     const linkBanDo = document.getElementById('link-xem-ban-do');
     if (linkBanDo && cfg.diaDiem.linkBanDo) {
       linkBanDo.href = cfg.diaDiem.linkBanDo;
@@ -83,8 +78,8 @@
     const thamSoURL = new URLSearchParams(window.location.search);
     const guestId = thamSoURL.get('guest');
 
-    const tieuDeLoiChao = document.getElementById('tieu-de-loi-chao');
-    const noiDungLoiNhan = document.getElementById('noi-dung-loi-nhan');
+    const elTenKhach = document.getElementById('ten-khach-moi');
+    const elLoiNhan = document.getElementById('noi-dung-loi-nhan');
 
     const cfg = window.THONG_TIN_SU_KIEN || {};
     const macDinh = cfg.khachMacDinh || {
@@ -99,7 +94,7 @@
 
     try {
       const res = await fetch('./guests.json');
-      if (!res.ok) throw new Error('Không thể đọc file guests.json');
+      if (!res.ok) throw new Error('Không thể tải file guests.json');
       const danhSachKhach = await res.json();
 
       const khach = danhSachKhach.find(k => k.id && k.id.toLowerCase() === guestId.toLowerCase().trim());
@@ -116,11 +111,11 @@
     }
 
     function hienThiKhach(ten, loiNhan) {
-      if (tieuDeLoiChao) {
-        tieuDeLoiChao.innerHTML = `Hẹn gặp bạn nhé, <span class="diem-nhan-ten-khach">${locHTML(ten)}</span>`;
+      if (elTenKhach) {
+        elTenKhach.textContent = ten;
       }
-      if (noiDungLoiNhan) {
-        noiDungLoiNhan.textContent = `"${loiNhan}"`;
+      if (elLoiNhan) {
+        elLoiNhan.textContent = `"${loiNhan}"`;
       }
     }
   }
@@ -168,7 +163,7 @@
     setInterval(capNhat, 1000);
   }
 
-  // Khởi chạy khi DOM sẵn sàng
+  // Khởi chạy
   document.addEventListener('DOMContentLoaded', () => {
     khoiTaoGiaoDien();
     napThongTinSuKien();
