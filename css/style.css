@@ -9,51 +9,51 @@
 /* --- HỆ THỐNG MÀU SẮC LIGHT BLUE QUIET LUXURY --- */
 :root, [data-theme="light"] {
   /* Giao diện Sáng (MẶC ĐỊNH) */
-  --bg-primary: #F7F5F0;
-  --bg-secondary: #EEEAE1;
+  --bg-primary: #F7FBFF;
+  --bg-secondary: #EAF4FF;
   --bg-card: #FFFFFF;
-  --bg-card-highlight: #F2F0EA;
+  --bg-card-highlight: #EEF7FF;
 
-  --text-primary: #14263A;
-  --text-secondary: #5E6B78;
-  --text-muted: #84909A;
+  --text-primary: #102A43;
+  --text-secondary: #526F88;
+  --text-muted: #8299AD;
 
-  --accent: #B28A4A;
-  --accent-light: #E3D1AD;
-  --accent-deep: #254C6D;
-  --border: #DDD7CB;
-  --border-subtle: #EDE9E0;
+  --accent: #5DA9E9;
+  --accent-light: #B9DDF8;
+  --accent-deep: #1B5E94;
+  --border: #D5E6F5;
+  --border-subtle: #E8F2FA;
 
   /* Typography: Chỉ dùng tối đa 2 font chính */
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Bóng đổ và gradient mềm */
-  --shadow-card: 0 10px 30px rgba(24, 38, 58, 0.06);
-  --shadow-guest: 0 18px 42px rgba(24, 38, 58, 0.09);
+  --shadow-card: 0 10px 30px rgba(27, 94, 148, 0.07);
+  --shadow-guest: 0 18px 42px rgba(27, 94, 148, 0.1);
 
   --gradient-anh-phai: linear-gradient(to right, transparent 53%, var(--bg-primary) 100%);
-  --gradient-anh-duoi: linear-gradient(to top, rgba(20, 38, 58, 0.48) 0%, transparent 65%);
+  --gradient-anh-duoi: linear-gradient(to top, rgba(11, 55, 91, 0.52) 0%, transparent 65%);
 
   --chuyen-mau: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* Giao diện Tối (Tùy chọn phụ, cùng tone xanh sâu) */
 [data-theme="dark"] {
-  --bg-primary: #0D121B;
-  --bg-secondary: #131A26;
-  --bg-card: #161F2E;
-  --bg-card-highlight: #1B2536;
+  --bg-primary: #091725;
+  --bg-secondary: #0E2234;
+  --bg-card: #122B40;
+  --bg-card-highlight: #17354D;
 
   --text-primary: #EEF2F8;
-  --text-secondary: #97A3B6;
-  --text-muted: #647185;
+  --text-secondary: #A7C1D8;
+  --text-muted: #6E90AD;
 
-  --accent: #7EA1C9;
-  --accent-light: #344861;
-  --accent-deep: #B5CEEC;
-  --border: #222E40;
-  --border-subtle: #1A2433;
+  --accent: #74C0FC;
+  --accent-light: #245273;
+  --accent-deep: #C9E6FF;
+  --border: #21415A;
+  --border-subtle: #173047;
 
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
   --shadow-guest: 0 6px 24px rgba(0, 0, 0, 0.35);
@@ -271,6 +271,11 @@ body::before {
   z-index: 2;
 }
 
+/* Thiệp tập trung vào thông tin buổi lễ; không cần hiển thị đồng hồ đếm ngược. */
+.khung-dem-nguoc-nho {
+  display: none;
+}
+
 /* 1. Nhãn "LỄ TỐT NGHIỆP" */
 .khung-nhan-su-kien {
   display: flex;
@@ -301,7 +306,7 @@ body::before {
 
 /* 2. Tên chính "Tạ Thị Nga" & 3. Thông tin khóa/ngành */
 .khoi-ten-nguoi-tot-nghiep {
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.65rem;
 }
 
 .ten-chinh {
@@ -327,7 +332,7 @@ body::before {
   font-style: italic;
   font-size: 0.95rem;
   color: var(--text-secondary);
-  margin: 0.85rem 0 1.35rem;
+  margin: 0.65rem 0 1.1rem;
   padding-left: 0.9rem;
   border-left: 2px solid var(--accent);
   line-height: 1.5;
@@ -338,8 +343,8 @@ body::before {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 4px 18px 4px 18px;
-  padding: 1.5rem 1.7rem;
-  margin-bottom: 1.8rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.35rem;
   box-shadow: var(--shadow-guest);
   position: relative;
   overflow: hidden;
@@ -385,8 +390,8 @@ body::before {
 .khung-thong-tin-su-kien {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .dong-thong-tin-ngang {
@@ -485,7 +490,7 @@ body::before {
   width: 100%;
   height: 1px;
   background: var(--border);
-  margin: 1.25rem 0 1.25rem;
+  margin: 0.75rem 0 1rem;
 }
 
 /* 10. COUNTDOWN NHỎ, TINH TẾ Ở CUỐI */
@@ -562,7 +567,7 @@ body::before {
   font-size: 0.74rem;
   letter-spacing: 0.06em;
   color: var(--text-muted);
-  padding-top: 0.25rem;
+  padding-top: 0;
 }
 
 /* --- RESPONSIVE MOBILE (< 992px) --- */
