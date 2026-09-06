@@ -7,26 +7,26 @@ const THONG_TIN_SU_KIEN = {
   nguoiTotNghiep: {
     ten: "Tạ Thị Nga",
     nhanSuKien: "LỄ TỐT NGHIỆP",
-    chuyenNganhKhoa: "Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026",
-    loiDan: "Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó."
+    chuyenNganhKhoa: "Cử nhân Toán Tin",
+    loiDan: "Khoảnh khắc trọn vẹn nhất là khoảnh khắc có bạn ở đó cùng mình."
   },
 
-  // Thời gian sự kiện (targetDate định dạng YYYY-MM-DDTHH:mm:ss dùng cho countdown)
+  // Thời gian sự kiện
   thoiGian: {
-    targetDate: "2026-10-24T08:30:00",
-    targetEndDate: "2026-10-24T10:30:00",
-    ngayHienThi: "Thứ Bảy, 24 Tháng 10, 2026",
-    gioHienThi: "08:30"
+    targetDate: "2026-09-26T09:00:00",
+    targetEndDate: "2026-09-26T11:00:00",
+    ngayHienThi: "Thứ Bảy, 26 Tháng 09, 2026",
+    gioHienThi: "09:00"
   },
 
   // Địa điểm tổ chức
   diaDiem: {
-    tenDiaDiem: "Hội trường Lớn • Tòa nhà A1, Học viện Báo chí và Tuyên truyền",
-    diaChi: "36 Xuân Thủy, Cầu Giấy, Hà Nội",
-    linkBanDo: "https://maps.google.com/?q=H%E1%BB%8Dc+vi%E1%BB%87n+B%C3%A1o+ch%C3%AD+v%C3%A0+Tuy%C3%AAn+truy%E1%BB%81n,+36+Xu%C3%A2n+Th%E1%BB%A7y,+H%C3%A0+N%E1%BB%99i"
+    tenDiaDiem: "Hội trường C2 • Đại học Bách khoa Hà Nội",
+    diaChi: "Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội",
+    linkBanDo: "https://maps.google.com/?q=Cổng+Trần+Đại+Nghĩa,+Đại+học+Bách+khoa+Hà+Nội,+Hà+Nội"
   },
 
-  // Khách mời mặc định khi URL không có ?guest= hoặc guest không tồn tại
+  // Khách mời mặc định
   khachMacDinh: {
     ten: "Bạn thân mến",
     loiNhan: "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."

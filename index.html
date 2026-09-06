@@ -10,7 +10,7 @@
   <meta property="og:description" content="Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó. Trân trọng kính mời bạn đến chung vui cùng Nga!">
   <meta property="og:image" content="assets/images/TTN_vuong.JPG">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#F7FBFF">
+  <meta name="theme-color" content="#003D4F">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -24,6 +24,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+
+  <!-- NỀN ĐỘNG DYNAMIC CANVAS + AMBIENT GLOW -->
+  <div class="nen-dong" aria-hidden="true">
+    <canvas id="canvas-nen-dong" class="canvas-nen-dong"></canvas>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="blob b4"></div>
+  </div>
 
   <!-- Nút chuyển chế độ Sáng / Tối duy nhất ở góc trên bên phải -->
   <aside class="thanh-dieu-khien-tren">
@@ -57,19 +67,14 @@
              alt="Tạ Thị Nga - Lễ Tốt Nghiệp" 
              class="anh-tot-nghiep" 
              loading="eager">
-        
-        <!-- Lớp gradient chuyển nền mềm mại -->
-        <div class="lop-gradient-phai"></div>
-        <div class="lop-gradient-duoi"></div>
 
         <div class="phu-de-anh" aria-hidden="true">
           <span>Class of</span>
           <strong>2026</strong>
         </div>
 
-        <!-- Logo N và chữ ký soona ở góc ảnh chân dung -->
-        <div class="logo-thuong-hieu" aria-label="Logo N và chữ ký soona">
-          <img src="assets/images/monogram.svg" alt="Logo N" class="anh-logo-thuong-hieu">
+        <!-- Chữ ký soona ở góc dưới ảnh -->
+        <div class="logo-thuong-hieu" aria-label="Chữ ký soona">
           <img src="assets/images/signature.svg" alt="soona" class="anh-chu-ky-soona">
         </div>
       </div>
@@ -80,18 +85,16 @@
 
       <!-- 1. LỄ TỐT NGHIỆP -->
       <div class="khung-nhan-su-kien">
-        <span class="nhan-chu-accent" id="nhan-su-kien">LỄ TỐT NGHIỆP</span>
+        <span class="nhan-chu-accent" id="nhan-su-kien"><span class="nhan-code">&gt;_</span> LỄ TỐT NGHIỆP</span>
       </div>
 
-      <!-- 2. TẠ THỊ NGA & 3. THÔNG TIN KHÓA/NGÀNH -->
       <header class="khoi-ten-nguoi-tot-nghiep">
         <h1 class="ten-chinh" id="ten-nguoi-tot-nghiep">Tạ Thị Nga</h1>
-        <div class="thong-tin-nganh-khoa" id="thong-tin-khoa-nganh">Cử nhân Báo chí & Truyền thông • Khóa 2022 – 2026</div>
       </header>
 
       <!-- 4. CÂU QUOTE NGẮN -->
       <blockquote class="loi-dan-ngan" id="loi-dan">
-        Khoảnh khắc này sẽ trọn vẹn hơn khi có bạn ở đó.
+        Khoảnh khắc trọn vẹn nhất là khoảnh khắc có bạn ở đó cùng mình.
       </blockquote>
 
       <!-- 5. NGAY SAU ĐÓ: LỜI CHÀO CÁ NHÂN HÓA (ĐIỂM NHẤN THỊ GIÁC QUAN TRỌNG) -->
@@ -108,19 +111,19 @@
         <div class="dong-thong-tin-ngang">
           <div class="muc-chi-tiet">
             <span class="nhan-muc">NGÀY TỐT NGHIỆP</span>
-            <span class="gia-tri-muc gia-tri-ngay" id="hien-thi-ngay">Thứ Bảy, 24 Tháng 10, 2026</span>
+            <span class="gia-tri-muc gia-tri-ngay" id="hien-thi-ngay">Thứ Bảy, 26 Tháng 09, 2026</span>
           </div>
 
           <div class="muc-chi-tiet">
             <span class="nhan-muc">THỜI GIAN</span>
-            <span class="gia-tri-muc" id="hien-thi-gio">08:30</span>
+            <span class="gia-tri-muc" id="hien-thi-gio">09:00</span>
           </div>
         </div>
 
         <div class="muc-chi-tiet">
           <span class="nhan-muc">ĐỊA ĐIỂM</span>
-          <span class="gia-tri-muc" id="hien-thi-dia-diem">Hội trường Lớn • Tòa nhà A1, Học viện Báo chí và Tuyên truyền</span>
-          <span class="dia-chi-phu" id="hien-thi-dia-chi">36 Xuân Thủy, Cầu Giấy, Hà Nội</span>
+          <span class="gia-tri-muc" id="hien-thi-dia-diem">Hội trường C2 • Đại học Bách khoa Hà Nội</span>
+          <span class="dia-chi-phu" id="hien-thi-dia-chi">Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</span>
           <div class="nhom-hanh-dong">
             <a href="#" id="link-xem-ban-do" class="nut-hanh-dong nut-hanh-dong-chinh" target="_blank" rel="noopener noreferrer">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.25"/></svg>

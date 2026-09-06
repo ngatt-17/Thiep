@@ -44,7 +44,6 @@
 
     ganChu('nhan-su-kien', cfg.nguoiTotNghiep.nhanSuKien);
     ganChu('ten-nguoi-tot-nghiep', cfg.nguoiTotNghiep.ten);
-    ganChu('thong-tin-khoa-nganh', cfg.nguoiTotNghiep.chuyenNganhKhoa);
     ganChu('loi-dan', cfg.nguoiTotNghiep.loiDan);
 
     ganChu('hien-thi-ngay', cfg.thoiGian.ngayHienThi);
@@ -188,12 +187,169 @@
     setInterval(capNhat, 1000);
   }
 
+  // --- 5. NỀN ĐỘNG DYNAMIC CANVAS: HẠT NƯỚC, ÁNH SÁNG & TƯƠNG TÁC CHUỘT ---
+  function khoiTaoNenDong() {
+    const canvas = document.getElementById('canvas-nen-dong');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let dpr = window.devicePixelRatio || 1;
+    let hatList = [];
+    const SO_LUONG_HAT = Math.min(window.innerWidth < 768 ? 32 : 60, 75);
+    const mouse = { x: null, y: null, radius: 150 };
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    class Hat {
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(initial = false) {
+        this.x = Math.random() * width;
+        this.y = initial ? Math.random() * height : height + 15;
+        this.radius = Math.random() * 2.5 + 1.2;
+        this.vy = -(Math.random() * 0.45 + 0.2);
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.phase = Math.random() * Math.PI * 2;
+        this.phaseSpeed = Math.random() * 0.02 + 0.01;
+        this.alpha = Math.random() * 0.5 + 0.35;
+        this.isGlowOrb = Math.random() < 0.22;
+        if (this.isGlowOrb) {
+          this.radius = Math.random() * 10 + 7;
+          this.alpha = Math.random() * 0.2 + 0.12;
+        }
+      }
+
+      update() {
+        this.phase += this.phaseSpeed;
+        this.y += this.vy;
+        this.x += this.vx + Math.sin(this.phase) * 0.4;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius && dist > 0.1) {
+            const force = (1 - dist / mouse.radius) * 1.5;
+            this.x -= (dx / dist) * force;
+            this.y -= (dy / dist) * force;
+          }
+        }
+
+        if (this.y < -35 || this.x < -35 || this.x > width + 35) {
+          this.reset(false);
+        }
+      }
+
+      draw(isDark) {
+        ctx.beginPath();
+        if (this.isGlowOrb) {
+          const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+          if (isDark) {
+            grad.addColorStop(0, `rgba(128, 216, 255, ${this.alpha * 1.2})`);
+            grad.addColorStop(0.5, `rgba(79, 195, 247, ${this.alpha * 0.5})`);
+            grad.addColorStop(1, `rgba(79, 195, 247, 0)`);
+          } else {
+            grad.addColorStop(0, `rgba(2, 132, 199, ${this.alpha * 1.2})`);
+            grad.addColorStop(0.5, `rgba(14, 165, 233, ${this.alpha * 0.5})`);
+            grad.addColorStop(1, `rgba(14, 165, 233, 0)`);
+          }
+          ctx.fillStyle = grad;
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          const color = isDark
+            ? `rgba(128, 216, 255, ${this.alpha})`
+            : `rgba(2, 132, 199, ${this.alpha * 1.1})`;
+          ctx.fillStyle = color;
+          ctx.shadowBlur = isDark ? 8 : 4;
+          ctx.shadowColor = isDark ? 'rgba(79, 195, 247, 0.6)' : 'rgba(2, 132, 199, 0.35)';
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+    }
+
+    function initParticles() {
+      hatList = [];
+      for (let i = 0; i < SO_LUONG_HAT; i++) {
+        hatList.push(new Hat());
+      }
+    }
+
+    function drawConnections(isDark) {
+      const maxDist = 95;
+      for (let i = 0; i < hatList.length; i++) {
+        if (hatList[i].isGlowOrb) continue;
+        for (let j = i + 1; j < hatList.length; j++) {
+          if (hatList[j].isGlowOrb) continue;
+          const dx = hatList[i].x - hatList[j].x;
+          const dy = hatList[i].y - hatList[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDist) {
+            const alphaRatio = (1 - dist / maxDist);
+            ctx.beginPath();
+            ctx.strokeStyle = isDark
+              ? `rgba(79, 195, 247, ${alphaRatio * 0.22})`
+              : `rgba(2, 132, 199, ${alphaRatio * 0.20})`;
+            ctx.lineWidth = 0.75;
+            ctx.moveTo(hatList[i].x, hatList[i].y);
+            ctx.lineTo(hatList[j].x, hatList[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      ctx.clearRect(0, 0, width, height);
+
+      drawConnections(isDark);
+
+      for (let i = 0; i < hatList.length; i++) {
+        hatList[i].update();
+        hatList[i].draw(isDark);
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    resize();
+    initParticles();
+    requestAnimationFrame(animate);
+  }
+
   // Khởi chạy
   document.addEventListener('DOMContentLoaded', () => {
     khoiTaoGiaoDien();
     napThongTinSuKien();
     napLoiMoiCaNhanHoa();
     khoiTaoDemNguoc();
+    khoiTaoNenDong();
   });
 
 })();
