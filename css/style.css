@@ -239,23 +239,35 @@ body::before {
   letter-spacing: -0.04em;
 }
 
-/* Chữ ký cá nhân hóa cách điệu "soona" ở góc ảnh chân dung */
-.chu-ky-soona {
+/* Logo N và chữ ký soona ở góc ảnh chân dung */
+.logo-thuong-hieu {
   position: absolute;
   bottom: 2rem;
   left: 2.25rem;
   z-index: 3;
+  width: 116px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  filter: drop-shadow(0 10px 18px rgba(4, 26, 45, 0.28));
   pointer-events: none;
   user-select: none;
 }
 
+.anh-logo-thuong-hieu {
+  width: 74px;
+  height: 74px;
+  display: block;
+  opacity: 0.98;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .anh-chu-ky-soona {
-  width: 175px;
+  width: 108px;
   height: auto;
   display: block;
   opacity: 0.95;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* --- CỘT PHẢI: NỘI DUNG THIỆP GỌN GÀNG, LIỀN MẠCH, NHIỀU KHOẢNG THỞ CÓ CHỦ ĐÍCH --- */
@@ -597,13 +609,19 @@ body::before {
     left: 1.25rem;
   }
 
-  .chu-ky-soona {
+  .logo-thuong-hieu {
     bottom: 1.15rem;
     left: 1.25rem;
+    width: 94px;
+  }
+
+  .anh-logo-thuong-hieu {
+    width: 62px;
+    height: 62px;
   }
 
   .anh-chu-ky-soona {
-    width: 110px;
+    width: 88px;
   }
 
   .cot-noi-dung {
