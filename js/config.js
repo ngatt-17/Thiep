@@ -14,6 +14,7 @@ const THONG_TIN_SU_KIEN = {
   // Thời gian sự kiện (targetDate định dạng YYYY-MM-DDTHH:mm:ss dùng cho countdown)
   thoiGian: {
     targetDate: "2026-10-24T08:30:00",
+    targetEndDate: "2026-10-24T10:30:00",
     ngayHienThi: "Thứ Bảy, 24 Tháng 10, 2026",
     gioHienThi: "08:30"
   },

@@ -9,31 +9,31 @@
 /* --- HỆ THỐNG MÀU SẮC LIGHT BLUE QUIET LUXURY --- */
 :root, [data-theme="light"] {
   /* Giao diện Sáng (MẶC ĐỊNH) */
-  --bg-primary: #F6F8FC;
-  --bg-secondary: #EDF2F8;
+  --bg-primary: #F7F5F0;
+  --bg-secondary: #EEEAE1;
   --bg-card: #FFFFFF;
-  --bg-card-highlight: #F0F4FA;
+  --bg-card-highlight: #F2F0EA;
 
-  --text-primary: #18202E;
-  --text-secondary: #697386;
-  --text-muted: #9AA5B5;
+  --text-primary: #14263A;
+  --text-secondary: #5E6B78;
+  --text-muted: #84909A;
 
-  --accent: #6F8FB5;
-  --accent-light: #B9CCE3;
-  --accent-deep: #385777;
-  --border: #D9E1EB;
-  --border-subtle: #E8EEF5;
+  --accent: #B28A4A;
+  --accent-light: #E3D1AD;
+  --accent-deep: #254C6D;
+  --border: #DDD7CB;
+  --border-subtle: #EDE9E0;
 
   /* Typography: Chỉ dùng tối đa 2 font chính */
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Bóng đổ và gradient mềm */
-  --shadow-card: 0 4px 20px rgba(56, 87, 119, 0.06);
-  --shadow-guest: 0 6px 24px rgba(56, 87, 119, 0.08);
+  --shadow-card: 0 10px 30px rgba(24, 38, 58, 0.06);
+  --shadow-guest: 0 18px 42px rgba(24, 38, 58, 0.09);
 
-  --gradient-anh-phai: linear-gradient(to right, transparent 60%, var(--bg-primary) 100%);
-  --gradient-anh-duoi: linear-gradient(to top, rgba(246, 248, 252, 0.95) 0%, transparent 100%);
+  --gradient-anh-phai: linear-gradient(to right, transparent 53%, var(--bg-primary) 100%);
+  --gradient-anh-duoi: linear-gradient(to top, rgba(20, 38, 58, 0.48) 0%, transparent 65%);
 
   --chuyen-mau: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
@@ -85,6 +85,19 @@ body {
   transition: var(--chuyen-mau);
   overflow-x: hidden;
   position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 34rem;
+  height: 34rem;
+  right: -19rem;
+  bottom: -18rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3rem color-mix(in srgb, var(--accent) 3%, transparent), 0 0 0 7rem color-mix(in srgb, var(--accent) 2%, transparent);
+  pointer-events: none;
 }
 
 /* --- NÚT CHUYỂN ĐỔI CHẾ ĐỘ SÁNG / TỐI (GÓC TRÊN BÊN PHẢI) --- */
@@ -155,7 +168,7 @@ body {
   top: 0;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--bg-secondary);
+  background-color: #162332;
 }
 
 .khung-chua-anh {
@@ -168,7 +181,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: 50% 28%;
   display: block;
   filter: contrast(1.02) brightness(0.98);
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -192,10 +205,38 @@ body {
 .lop-gradient-duoi {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 30%;
+  height: 34%;
   background: var(--gradient-anh-duoi);
   pointer-events: none;
   z-index: 2;
+}
+
+.phu-de-anh {
+  position: absolute;
+  top: 2rem;
+  left: 2.25rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+  line-height: 1;
+}
+
+.phu-de-anh span {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.phu-de-anh strong {
+  margin-top: 0.18rem;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
 }
 
 /* Chữ ký cá nhân hóa cách điệu "soona" ở góc ảnh chân dung */
@@ -223,8 +264,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 3.5rem 3.5rem;
-  max-width: 580px;
+  padding: 3.25rem 3.75rem;
+  max-width: 620px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -252,8 +293,8 @@ body {
 .nhan-chu-accent::before {
   content: "";
   display: inline-block;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--accent);
 }
@@ -265,7 +306,7 @@ body {
 
 .ten-chinh {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4vw, 3.25rem);
+  font-size: clamp(2.65rem, 4.3vw, 3.7rem);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.015em;
@@ -296,9 +337,9 @@ body {
 .the-loi-moi-ca-nhan {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.35rem 1.65rem;
-  margin-bottom: 1.65rem;
+  border-radius: 4px 18px 4px 18px;
+  padding: 1.5rem 1.7rem;
+  margin-bottom: 1.8rem;
   box-shadow: var(--shadow-guest);
   position: relative;
   overflow: hidden;
@@ -310,8 +351,8 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; bottom: 0;
-  width: 3.5px;
-  background: var(--accent);
+  width: 4px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-light));
 }
 
 .loi-chao-nho {
@@ -387,21 +428,56 @@ body {
 }
 
 /* 9. Link chữ nhỏ "Xem bản đồ ↗" */
-.link-xem-ban-do {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-deep);
-  text-decoration: none;
-  margin-top: 0.35rem;
-  transition: all 0.2s ease;
+.nhom-hanh-dong {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
 }
 
-.link-xem-ban-do:hover {
-  color: var(--accent);
-  transform: translateX(2px);
+.nut-hanh-dong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.nut-hanh-dong svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.nut-hanh-dong:hover {
+  transform: translateY(-2px);
+}
+
+.nut-hanh-dong-chinh {
+  color: #fff;
+  background: var(--accent-deep);
+  border: 1px solid var(--accent-deep);
+  box-shadow: 0 5px 14px rgba(37, 76, 109, 0.16);
+}
+
+.nut-hanh-dong-chinh:hover {
+  background: #173b5a;
+}
+
+.nut-hanh-dong-phu {
+  color: var(--accent-deep);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.nut-hanh-dong-phu:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-highlight);
 }
 
 /* Đường gạch phân cách mảnh nhẹ */
@@ -415,7 +491,7 @@ body {
 /* 10. COUNTDOWN NHỎ, TINH TẾ Ở CUỐI */
 .khung-dem-nguoc-nho {
   padding: 0.9rem 1.25rem;
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   margin-bottom: 1.25rem;
@@ -508,7 +584,12 @@ body {
 
   .lop-gradient-duoi {
     height: 45%;
-    background: linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(20, 38, 58, 0.7) 0%, transparent 100%);
+  }
+
+  .phu-de-anh {
+    top: 1.25rem;
+    left: 1.25rem;
   }
 
   .chu-ky-soona {
@@ -522,7 +603,7 @@ body {
 
   .cot-noi-dung {
     max-width: 100%;
-    padding: 2rem 1.25rem 3rem;
+    padding: 2.35rem 1.25rem 3rem;
   }
 
   .thanh-dieu-khien-tren {
@@ -545,5 +626,45 @@ body {
 
   .so-dem-nguoc {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .cot-hinh-anh {
+    height: 52vh;
+    min-height: 280px;
+  }
+
+  .ten-chinh {
+    font-size: 2.55rem;
+  }
+
+  .the-loi-moi-ca-nhan {
+    padding: 1.25rem;
+  }
+
+  .nhom-hanh-dong {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .nut-hanh-dong {
+    width: 100%;
+  }
+
+  .bo-so-dem-nguoc {
+    gap: 0.15rem;
+  }
+
+  .dau-phan-cach-dem-nguoc {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

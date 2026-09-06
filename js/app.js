@@ -56,6 +56,31 @@
     if (linkBanDo && cfg.diaDiem.linkBanDo) {
       linkBanDo.href = cfg.diaDiem.linkBanDo;
     }
+
+    const linkThemLich = document.getElementById('link-them-lich');
+    if (linkThemLich && cfg.thoiGian.targetDate) {
+      linkThemLich.href = taoLienKetLich(cfg);
+    }
+  }
+
+  function taoLienKetLich(cfg) {
+    const batDau = new Date(cfg.thoiGian.targetDate);
+    const ketThuc = new Date(cfg.thoiGian.targetEndDate || batDau.getTime() + 2 * 60 * 60 * 1000);
+    const dinhDangThoiGian = (date) => date.getFullYear()
+      + String(date.getMonth() + 1).padStart(2, '0')
+      + String(date.getDate()).padStart(2, '0') + 'T'
+      + String(date.getHours()).padStart(2, '0')
+      + String(date.getMinutes()).padStart(2, '0') + '00';
+    const diaDiem = `${cfg.diaDiem.tenDiaDiem}, ${cfg.diaDiem.diaChi}`;
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: `${cfg.nguoiTotNghiep.nhanSuKien} • ${cfg.nguoiTotNghiep.ten}`,
+      dates: `${dinhDangThoiGian(batDau)}/${dinhDangThoiGian(ketThuc)}`,
+      details: cfg.nguoiTotNghiep.loiDan,
+      location: diaDiem,
+      ctz: 'Asia/Ho_Chi_Minh'
+    });
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
   }
 
   function ganChu(id, noiDung) {
