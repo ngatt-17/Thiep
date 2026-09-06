@@ -7,8 +7,7 @@ const THONG_TIN_SU_KIEN = {
   nguoiTotNghiep: {
     ten: "Tạ Thị Nga",
     nhanSuKien: "LỄ TỐT NGHIỆP",
-    chuyenNganhKhoa: "Cử nhân Toán Tin",
-    loiDan: "Khoảnh khắc trọn vẹn nhất là khoảnh khắc có bạn ở đó cùng mình."
+    loiDan: "Khép lại 4 năm rực rỡ, ngày tốt nghiệp sẽ càng trọn vẹn và ý nghĩa hơn khi có bạn ở bên chung vui cùng mình."
   },
 
   // Thời gian sự kiện
@@ -21,7 +20,7 @@ const THONG_TIN_SU_KIEN = {
 
   // Địa điểm tổ chức
   diaDiem: {
-    tenDiaDiem: "Hội trường C2, Đại học Bách khoa Hà Nội",
+    tenDiaDiem: "Hội trường C2, Đại học Bách khoa Hà\u00A0Nội",
     diaChi: "Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội",
     linkBanDo: "https://maps.google.com/?q=Cổng+Trần+Đại+Nghĩa,+Đại+học+Bách+khoa+Hà+Nội,+Hà+Nội"
   },
@@ -29,7 +28,7 @@ const THONG_TIN_SU_KIEN = {
   // Khách mời mặc định
   khachMacDinh: {
     ten: "Bạn thân mến",
-    loiNhan: "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."
+    loiNhan: "Sự hiện diện của bạn là niềm vui và vinh dự lớn đối với Nga trong ngày đánh dấu cột mốc trưởng thành này. Rất mong được đón bạn đến chung vui và lưu lại những bức hình kỷ niệm thật đẹp cùng Nga nhé!"
   }
 };
 
