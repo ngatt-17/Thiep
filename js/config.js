@@ -21,7 +21,7 @@ const THONG_TIN_SU_KIEN = {
 
   // Địa điểm tổ chức
   diaDiem: {
-    tenDiaDiem: "Hội trường C2 • Đại học Bách khoa Hà Nội",
+    tenDiaDiem: "Hội trường C2, Đại học Bách khoa Hà Nội",
     diaChi: "Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội",
     linkBanDo: "https://maps.google.com/?q=Cổng+Trần+Đại+Nghĩa,+Đại+học+Bách+khoa+Hà+Nội,+Hà+Nội"
   },
