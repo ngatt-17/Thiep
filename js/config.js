@@ -8,8 +8,7 @@ const THONG_TIN_SU_KIEN = {
     ten: "Tạ Thị Nga",
     nhanSuKien: "LỄ TỐT NGHIỆP",
     sdt: "0368647858",
-    tenLienHe: "Nga",
-    loiDan: "Khép lại hành trình 4 năm rực rỡ, ngày tốt nghiệp sẽ càng trọn vẹn và đáng nhớ hơn khi có bạn ở bên, cùng mình lưu giữ khoảnh khắc đặc biệt này."
+    tenLienHe: "Nga"
   },
 
   // Thời gian sự kiện

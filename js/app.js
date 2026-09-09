@@ -62,7 +62,7 @@
     if (linkSdt && cfg.nguoiTotNghiep.sdt) {
       linkSdt.href = `tel:${cfg.nguoiTotNghiep.sdt}`;
       if (chuSdt) {
-        chuSdt.textContent = `${cfg.nguoiTotNghiep.sdt} - ${cfg.nguoiTotNghiep.tenLienHe || 'Nga'}`;
+        chuSdt.textContent = `${cfg.nguoiTotNghiep.sdt} • ${cfg.nguoiTotNghiep.tenLienHe || 'Nga'}`;
       }
     }
   }
@@ -73,16 +73,6 @@
   }
 
   // --- 3. CÁ NHÂN HÓA LỜI MỜI THEO URL (?guest=slug) ---
-  function locHTML(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
-
   async function napLoiMoiCaNhanHoa() {
     const thamSoURL = new URLSearchParams(window.location.search);
     const guestId = thamSoURL.get('guest');
@@ -93,7 +83,7 @@
     const cfg = window.THONG_TIN_SU_KIEN || {};
     const macDinh = cfg.khachMacDinh || {
       ten: "Bạn thân mến",
-      loiNhan: "Hôm nay có thể chỉ là một ngày tốt nghiệp, nhưng sẽ ý nghĩa hơn rất nhiều nếu có bạn cùng Nga lưu lại khoảnh khắc đáng nhớ này."
+      loiNhan: "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
     };
 
     if (!guestId) {
