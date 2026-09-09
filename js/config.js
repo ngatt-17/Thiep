@@ -7,14 +7,16 @@ const THONG_TIN_SU_KIEN = {
   nguoiTotNghiep: {
     ten: "Tạ Thị Nga",
     nhanSuKien: "LỄ TỐT NGHIỆP",
-    loiDan: "Khép lại 4 năm rực rỡ, ngày tốt nghiệp sẽ càng trọn vẹn và ý nghĩa hơn khi có bạn ở bên chung vui cùng mình."
+    sdt: "0368647858",
+    tenLienHe: "Nga",
+    loiDan: "Khép lại hành trình 4 năm rực rỡ, ngày tốt nghiệp sẽ càng trọn vẹn và đáng nhớ hơn khi có bạn ở bên, cùng mình lưu giữ khoảnh khắc đặc biệt này."
   },
 
   // Thời gian sự kiện
   thoiGian: {
     targetDate: "2026-09-26T09:00:00",
     targetEndDate: "2026-09-26T11:00:00",
-    ngayHienThi: "Thứ Bảy, 26 Tháng 09, 2026",
+    ngayHienThi: "Thứ bảy, 26/09/2026",
     gioHienThi: "09:00"
   },
 
@@ -28,7 +30,7 @@ const THONG_TIN_SU_KIEN = {
   // Khách mời mặc định
   khachMacDinh: {
     ten: "Bạn thân mến",
-    loiNhan: "Sự hiện diện của bạn là niềm vui và vinh dự lớn đối với Nga trong ngày đánh dấu cột mốc trưởng thành này. Rất mong được đón bạn đến chung vui và lưu lại những bức hình kỷ niệm thật đẹp cùng Nga nhé!"
+    loiNhan: "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
   }
 };
 

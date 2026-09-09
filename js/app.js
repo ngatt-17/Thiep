@@ -37,6 +37,8 @@
     }
   }
 
+
+
   // --- 2. HIỂN THỊ THÔNG TIN SỰ KIỆN TỪ CONFIG ---
   function napThongTinSuKien() {
     const cfg = window.THONG_TIN_SU_KIEN;
@@ -44,7 +46,6 @@
 
     ganChu('nhan-su-kien', cfg.nguoiTotNghiep.nhanSuKien);
     ganChu('ten-nguoi-tot-nghiep', cfg.nguoiTotNghiep.ten);
-    ganChu('loi-dan', cfg.nguoiTotNghiep.loiDan);
 
     ganChu('hien-thi-ngay', cfg.thoiGian.ngayHienThi);
     ganChu('hien-thi-gio', cfg.thoiGian.gioHienThi);
@@ -54,6 +55,15 @@
     const linkBanDo = document.getElementById('link-xem-ban-do');
     if (linkBanDo && cfg.diaDiem.linkBanDo) {
       linkBanDo.href = cfg.diaDiem.linkBanDo;
+    }
+
+    const linkSdt = document.getElementById('link-sdt-lien-he');
+    const chuSdt = document.getElementById('chu-sdt-lien-he');
+    if (linkSdt && cfg.nguoiTotNghiep.sdt) {
+      linkSdt.href = `tel:${cfg.nguoiTotNghiep.sdt}`;
+      if (chuSdt) {
+        chuSdt.textContent = `${cfg.nguoiTotNghiep.sdt} - ${cfg.nguoiTotNghiep.tenLienHe || 'Nga'}`;
+      }
     }
   }
 
@@ -100,7 +110,7 @@
 
       if (khach) {
         hienThiKhach(khach.name, khach.message);
-        document.title = `Thiệp Mời Lễ Tốt Nghiệp • ${cfg.nguoiTotNghiep?.ten || 'Tạ Thị Nga'} | Gửi ${khach.name}`;
+        document.title = `Thiệp mời tham dự Lễ tốt nghiệp • ${cfg.nguoiTotNghiep?.ten || 'Tạ Thị Nga'} | Gửi ${khach.name}`;
       } else {
         hienThiKhach(macDinh.ten, macDinh.loiNhan);
       }
@@ -318,6 +328,85 @@
     requestAnimationFrame(animate);
   }
 
+  // --- 6. MASCOT CHIM CÁNH CỤT CUTE & DYNAMIC INTERACTION ---
+  function khoiTaoMascotCanhCut() {
+    const mascotTrai = document.getElementById('mascot-trai');
+    const mascotPhai = document.getElementById('mascot-phai');
+    const thoaiPhai = document.getElementById('thoai-canh-cut-phai');
+
+    const cauThoaiPhai = [
+      "Nga cảm ơn bạn nhiều lắm! Thả ngàn tim nè! 💙🐧",
+      "Có bạn đến là ngày tốt nghiệp của Nga trọn vẹn nhất! ✨",
+      "Một chiếc ôm ấm áp gửi tới bạn từ Nga! 🐧✨",
+      "Thả tim xỉu luôn nè, bạn bấm nữa đi! 💙💙💙",
+      "Hẹn gặp bạn ngày 26/09 tại Bách khoa nhé! 🎓🎉",
+      "Yêu thương đong đầy gửi tới bạn thân mến! 💙"
+    ];
+
+    let idxPhai = 0;
+
+    function taoHieuUngTimNo(x, y) {
+      const bieuTuong = ['💙', '✨', '💎', '⭐', '🐧', '💙'];
+      const soLuong = 8;
+
+      for (let i = 0; i < soLuong; i++) {
+        const el = document.createElement('span');
+        el.className = 'hat-tim-no';
+        el.textContent = bieuTuong[Math.floor(Math.random() * bieuTuong.length)];
+
+        // Tọa độ bắn ngẫu nhiên hình tròn
+        const goc = (i / soLuong) * 2 * Math.PI + (Math.random() * 0.4 - 0.2);
+        const khoangCach = 38 + Math.random() * 50;
+        const dx = Math.cos(goc) * khoangCach;
+        const dy = Math.sin(goc) * khoangCach - 18;
+        const rot = (Math.random() * 60 - 30) + 'deg';
+
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.setProperty('--dx', dx + 'px');
+        el.style.setProperty('--dy', dy + 'px');
+        el.style.setProperty('--rot', rot);
+
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 950);
+      }
+    }
+
+    function ganSuKienMascot(mascot, thoaiEl, danhSachCauThoai, getIdx, setIdx) {
+      if (!mascot) return;
+
+      mascot.addEventListener('click', (e) => {
+        // Nhảy nhót vui sướng
+        mascot.classList.remove('nhay-tung-tang');
+        void mascot.offsetWidth; // Force reflow
+        mascot.classList.add('nhay-tung-tang');
+
+        // Bắn tim
+        const rect = mascot.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        taoHieuUngTimNo(centerX, centerY);
+
+        // Đổi câu thoại nếu có
+        if (thoaiEl && danhSachCauThoai && danhSachCauThoai.length > 0) {
+          let cur = getIdx();
+          cur = (cur + 1) % danhSachCauThoai.length;
+          setIdx(cur);
+          thoaiEl.textContent = danhSachCauThoai[cur];
+
+          thoaiEl.classList.add('dang-hien');
+          clearTimeout(thoaiEl._timer);
+          thoaiEl._timer = setTimeout(() => {
+            thoaiEl.classList.remove('dang-hien');
+          }, 3200);
+        }
+      });
+    }
+
+    ganSuKienMascot(mascotTrai, null, null, null, null);
+    ganSuKienMascot(mascotPhai, thoaiPhai, cauThoaiPhai, () => idxPhai, (v) => idxPhai = v);
+  }
+
   // Khởi chạy
   document.addEventListener('DOMContentLoaded', () => {
     khoiTaoGiaoDien();
@@ -325,6 +414,7 @@
     napLoiMoiCaNhanHoa();
     khoiTaoDemNguoc();
     khoiTaoNenDong();
+    khoiTaoMascotCanhCut();
   });
 
 })();

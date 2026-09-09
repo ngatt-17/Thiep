@@ -19,11 +19,11 @@
   <link rel="icon" type="image/png" href="favicon.png?v=3">
   <link rel="apple-touch-icon" href="favicon.png?v=3">
 
-  <!-- Google Fonts Hỗ trợ đầy đủ Unicode & Dấu Tiếng Việt -->
+  <!-- Google Fonts Chuẩn mực: EB Garamond (Cử nhân), Ephesis (Khách mời), Plus Jakarta Sans (Giao diện) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap&subset=vietnamese"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600&family=Ephesis&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap&subset=vietnamese"
     rel="stylesheet">
 
   <!-- Stylesheet -->
@@ -42,8 +42,9 @@
     <div class="blob b4"></div>
   </div>
 
-  <!-- Nút chuyển chế độ Sáng / Tối duy nhất ở góc trên bên phải -->
+  <!-- Thanh điều khiển trên: Nút chuyển chế độ Sáng / Tối tinh tế -->
   <aside class="thanh-dieu-khien-tren">
+
     <button id="nut-doi-giao-dien" class="nut-doi-giao-dien" aria-label="Chuyển sang giao diện tối"
       title="Chuyển chế độ Sáng / Tối">
       <!-- Biểu tượng Mặt Trăng (hiển thị khi đang ở Light Mode) -->
@@ -70,52 +71,57 @@
   <!-- Bố cục 50/50 Split Screen -->
   <main class="khung-thiep-moi">
 
-    <!-- CỘT TRÁI: ẢNH TỐT NGHIỆP CINEMATIC -->
-    <section class="cot-hinh-anh" aria-label="Ảnh tốt nghiệp">
+    <!-- CỘT TRÁI: NHẬN DIỆN CỬ NHÂN (LỄ TỐT NGHIỆP • TÊN TẠ THỊ NGA • ẢNH CINEMATIC) -->
+    <section class="cot-hinh-anh" aria-label="Thông tin cử nhân và ảnh tốt nghiệp">
+
+      <!-- 1. TIÊU ĐỀ SỰ KIỆN VÀ TÊN CỬ NHÂN ĐẶT TRÊN ĐẦU ẢNH (PHƯƠNG ÁN A) -->
+      <div class="khoi-danh-tinh-cu-nhan">
+        <div class="khung-nhan-su-kien">
+          <span class="nhan-chu-accent" id="nhan-su-kien">LỄ TỐT NGHIỆP</span>
+        </div>
+        <header class="khoi-ten-nguoi-tot-nghiep">
+          <h1 class="ten-chinh ten-chinh--handwritten" id="ten-nguoi-tot-nghiep">Tạ Thị Nga</h1>
+        </header>
+      </div>
+
+      <!-- 2. KHUNG ẢNH CHÂN DUNG LỚN DYNAMIC -->
       <div class="khung-chua-anh">
         <img src="assets/images/TTN_vuong.JPG" alt="Tạ Thị Nga - Lễ Tốt Nghiệp" class="anh-tot-nghiep" loading="eager">
 
-        <div class="phu-de-anh" aria-hidden="true">
-          <span>Class of</span>
-          <strong>2026</strong>
-        </div>
-
-        <!-- Chữ ký soona ở góc dưới ảnh -->
+        <!-- Chữ ký soona ở góc dưới bên trái ảnh -->
         <div class="logo-thuong-hieu" aria-label="Chữ ký soona">
           <img src="assets/images/signature.svg" alt="soona" class="anh-chu-ky-soona">
         </div>
       </div>
+
+      <!-- 3. DÒNG LIÊN HỆ DƯỚI ẢNH -->
+      <a href="tel:0368647858" class="lien-he-duoi-anh" id="link-sdt-lien-he" title="Gọi cho Nga khi đến nơi">
+        <svg class="icon-sdt-mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+        <span class="chu-lien-he-sdt">0368647858 • Nga</span>
+      </a>
     </section>
 
-    <!-- CỘT PHẢI: NỘI DUNG THIỆP GỌN GÀNG, LIỀN MẠCH -->
+    <!-- CỘT PHẢI: DÀNH TRỌN CHO KHÁCH MỜI VÀ CHI TIẾT SỰ KIỆN -->
     <article class="cot-noi-dung">
 
-      <!-- 1. LỄ TỐT NGHIỆP -->
-      <div class="khung-nhan-su-kien">
-        <span class="nhan-chu-accent" id="nhan-su-kien"><span class="nhan-code">&gt;_</span> LỄ TỐT NGHIỆP</span>
-      </div>
-
-      <header class="khoi-ten-nguoi-tot-nghiep">
-        <h1 class="ten-chinh" id="ten-nguoi-tot-nghiep">Tạ Thị Nga</h1>
-      </header>
-
-      <!-- 4. LỜI DẪN Ý NGHĨA -->
-      <blockquote class="loi-dan-ngan" id="loi-dan">
-        Khép lại 4 năm rực rỡ, ngày tốt nghiệp sẽ càng trọn vẹn và ý nghĩa hơn khi có bạn ở bên chung vui cùng mình.
-      </blockquote>
-
-      <!-- 5. LỜI CHÀO CÁ NHÂN HÓA -->
+      <!-- 1. THƯ MỜI CÁ NHÂN HÓA (THÂN MỜI BẠN VÀ LỜI NHẮN) -->
       <section class="the-loi-moi-ca-nhan" aria-label="Lời mời cá nhân hóa">
-        <div class="loi-chao-nho">Thân gửi</div>
-        <div class="ten-khach-moi" id="ten-khach-moi">Bạn thân mến</div>
+        <div class="loi-chao-nho">Thân mời</div>
+        <div class="ten-khach-moi ten-khach-moi--handwritten" id="ten-khach-moi">Bạn thân mến</div>
         <p class="noi-dung-loi-nhan" id="noi-dung-loi-nhan">
-          "Sự hiện diện của bạn là niềm vui và vinh dự lớn đối với Nga trong ngày đánh dấu cột mốc trưởng thành này. Rất mong được đón bạn đến chung vui và lưu lại những bức hình kỷ niệm thật đẹp cùng Nga nhé!"
+          "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu
+          lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
         </p>
       </section>
 
       <!-- 6, 7, 8 & ĐẾM NGƯỢC: BỐ CỤC 2x2 CÂN BẰNG TUYỆT ĐỐI (EDITORIAL LUXURY) -->
       <section class="khung-su-kien-trang-nha" aria-label="Thông tin thời gian, địa điểm và đếm ngược">
-        
+
         <!-- HÀNG 1: THỜI GIAN (Trái) & ĐẾM NGƯỢC (Phải) -->
         <div class="dong-su-kien dong-thoi-gian-va-dem-nguoc">
           <!-- Cột Trái: Thời gian -->
@@ -127,12 +133,15 @@
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
-              THỜI GIAN DIỄN RA
+              THỜI GIAN
             </span>
             <div class="dong-gia-tri-thoi-gian">
-              <span class="gio-chinh" id="hien-thi-gio">09:00</span>
-              <span class="cham-phan-cach">•</span>
-              <span class="ngay-chinh" id="hien-thi-ngay">Thứ Bảy, 26 Tháng 09, 2026</span>
+              <!-- Nét highlight tự nhiên phủ 45% nửa dưới dòng chữ như bút nhớ dòng thật -->
+              <span class="cum-thoi-gian-highlight">
+                <span class="gio-chinh" id="hien-thi-gio">09:00</span>
+                <span class="cham-phan-cach">•</span>
+                <span class="ngay-chinh" id="hien-thi-ngay">Thứ Bảy, 26 Tháng 09, 2026</span>
+              </span>
             </div>
           </div>
 
@@ -175,22 +184,25 @@
                 <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"></path>
                 <circle cx="12" cy="9" r="2.25"></circle>
               </svg>
-              ĐỊA ĐIỂM TỔ CHỨC
+              ĐỊA ĐIỂM
             </span>
-            <div class="dia-diem-chinh" id="hien-thi-dia-diem">Hội trường C2, Đại học Bách khoa Hà&nbsp;Nội</div>
+            <div class="dia-diem-chinh"><span class="cum-dia-diem-highlight" id="hien-thi-dia-diem">Hội trường C2, Đại
+                học Bách khoa Hà&nbsp;Nội</span></div>
             <div class="dia-diem-phu" id="hien-thi-dia-chi">Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
           </div>
 
           <!-- Cột Phải: Nút xem bản đồ đối trọng hoàn hảo -->
           <div class="cot-hanh-dong-ban-do">
             <a href="#" id="link-xem-ban-do" class="nut-chi-duong-sang" target="_blank" rel="noopener noreferrer">
-              <svg class="icon-map" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg class="icon-map" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
                 <line x1="9" y1="3" x2="9" y2="18"></line>
                 <line x1="15" y1="6" x2="15" y2="21"></line>
               </svg>
               <span>Xem bản đồ đường đi</span>
-              <svg class="icon-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg class="icon-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -201,6 +213,28 @@
       </section>
 
     </article>
+
+    <!-- MASCOT CHIM CÁNH CỤT CUTE DYNAMIC: GÓC TRÊN BÊN TRÁI -->
+    <div class="mascot-canh-cut mascot-canh-cut--trai" id="mascot-trai" role="button" tabindex="0" title="Bấm vào chú chim cánh cụt vẫy chào bạn nha!">
+      <div class="than-canh-cut">
+        <img src="assets/images/penguin_waving.png" alt="Chú chim cánh cụt vẫy chào" class="anh-canh-cut">
+        <span class="tim-bay-nho tim-1">💙</span>
+        <span class="tim-bay-nho tim-2">✨</span>
+      </div>
+    </div>
+
+    <!-- MASCOT CHIM CÁNH CỤT CUTE DYNAMIC: GÓC DƯỚI BÊN PHẢI -->
+    <div class="mascot-canh-cut mascot-canh-cut--phai" id="mascot-phai" role="button" tabindex="0" title="Bấm vào chú chim cánh cụt để nhận ngàn trái tim yêu thương!">
+      <div class="bong-bong-thoai bong-bong-thoai--phai" id="thoai-canh-cut-phai">
+        Nga cảm ơn bạn nhiều lắm! Thả ngàn tim nè! 💙🐧
+      </div>
+      <div class="than-canh-cut">
+        <img src="assets/images/penguin_heart.png" alt="Chú chim cánh cụt ôm tim" class="anh-canh-cut">
+        <span class="tim-bay-nho tim-1">💙</span>
+        <span class="tim-bay-nho tim-2">✨</span>
+      </div>
+    </div>
+
   </main>
 
   <!-- Script Cấu Hình & Logic -->
