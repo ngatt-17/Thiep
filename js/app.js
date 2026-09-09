@@ -397,6 +397,99 @@
     ganSuKienMascot(mascotPhai, thoaiPhai, cauThoaiPhai, () => idxPhai, (v) => idxPhai = v);
   }
 
+  // --- 7. MASCOT CHIM CÁNH CỤT CHẠY LON TON NGANG MÀN HÌNH (RUNNING PENGUIN MASCOT) ---
+  function khoiTaoMascotChayLonTon() {
+    const elRunner = document.getElementById('chu-canh-cut-chay');
+    if (!elRunner) return;
+
+    let isRunning = false;
+    let animId = null;
+    let lastTrailTime = 0;
+
+    function taoVetTim(x, y, sangPhai) {
+      const bieuTuong = ['💙', '✨', '💙', '⭐', '💙'];
+      const el = document.createElement('span');
+      el.className = 'vet-tim-chay';
+      el.textContent = bieuTuong[Math.floor(Math.random() * bieuTuong.length)];
+
+      const dx = (sangPhai ? -1 : 1) * (14 + Math.random() * 22);
+      const dy = -(10 + Math.random() * 18);
+      const rot = (Math.random() * 50 - 25) + 'deg';
+
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.setProperty('--dx', dx + 'px');
+      el.style.setProperty('--dy', dy + 'px');
+      el.style.setProperty('--rot', rot);
+
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1250);
+    }
+
+    function chayQuaManHinh() {
+      if (isRunning) return;
+      isRunning = true;
+
+      const screenW = window.innerWidth;
+      const runnerW = elRunner.offsetWidth || 68;
+      
+      // 80% chạy từ trái sang phải, 20% chạy từ phải sang trái
+      const sangPhai = Math.random() < 0.8;
+      const startX = sangPhai ? -runnerW - 40 : screenW + 40;
+      const endX = sangPhai ? screenW + 40 : -runnerW - 40;
+      const direction = sangPhai ? 1 : -1;
+
+      let currentX = startX;
+
+      elRunner.classList.add('dang-chay');
+      elRunner.style.display = 'block';
+
+      let lastTime = performance.now();
+
+      function step(now) {
+        const dt = Math.min((now - lastTime) / 1000, 0.1);
+        lastTime = now;
+
+        // Tốc độ chạy lạch bạch vui nhộn (~110px/s)
+        const pixelsPerSec = 105;
+        currentX += (sangPhai ? 1 : -1) * pixelsPerSec * dt;
+
+        elRunner.style.transform = `translate3d(${currentX}px, 0, 0) scaleX(${direction})`;
+
+        // Sinh hạt tim và bụi sao rơi lại phía sau chân
+        if (now - lastTrailTime > 420) {
+          lastTrailTime = now;
+          const rect = elRunner.getBoundingClientRect();
+          if (rect.right > 0 && rect.left < screenW) {
+            const trailX = sangPhai ? rect.left + 12 : rect.right - 12;
+            const trailY = rect.bottom - 18;
+            taoVetTim(trailX, trailY, sangPhai);
+          }
+        }
+
+        // Kiểm tra xem đã chạy hết màn hình chưa
+        const daXong = sangPhai ? (currentX >= endX) : (currentX <= endX);
+        if (daXong) {
+          cancelAnimationFrame(animId);
+          elRunner.classList.remove('dang-chay');
+          elRunner.style.display = 'none';
+          isRunning = false;
+
+          // Lên lịch cho lần chạy tiếp theo sau 12s - 22s
+          const thoiGianCho = 12000 + Math.random() * 10000;
+          setTimeout(chayQuaManHinh, thoiGianCho);
+        } else {
+          animId = requestAnimationFrame(step);
+        }
+      }
+
+      animId = requestAnimationFrame(step);
+    }
+
+    // Lần chạy đầu tiên: xuất hiện sau 3.5s khi mở trang
+    setTimeout(chayQuaManHinh, 3500);
+  }
+
   // Khởi chạy
   document.addEventListener('DOMContentLoaded', () => {
     khoiTaoGiaoDien();
@@ -405,6 +498,8 @@
     khoiTaoDemNguoc();
     khoiTaoNenDong();
     khoiTaoMascotCanhCut();
+    khoiTaoMascotChayLonTon();
   });
 
 })();
+
