@@ -798,6 +798,12 @@ body {
   flex-shrink: 0;
 }
 
+/* Chế độ chụp ảnh thiệp: Ẩn bộ đếm ngược để ảnh thiệp trang trọng, không bị dính số đếm tĩnh */
+body.che-do-chup-anh .khoi-dem-nguoc-duoi,
+.che-do-chup-anh .khoi-dem-nguoc-duoi {
+  display: none !important;
+}
+
 .khoi-dem-nguoc-duoi .bo-so-editorial {
   display: inline-flex;
   align-items: center;

@@ -86,6 +86,11 @@
   async function napLoiMoiCaNhanHoa() {
     const thamSoURL = new URLSearchParams(window.location.search);
     const guestId = thamSoURL.get('guest');
+    const anDemNguoc = thamSoURL.get('nocountdown') === '1' || thamSoURL.get('capture') === '1';
+
+    if (anDemNguoc) {
+      document.body.classList.add('che-do-chup-anh');
+    }
 
     const elTenKhach = document.getElementById('ten-khach-moi');
     const elLoiNhan = document.getElementById('noi-dung-loi-nhan');
@@ -109,7 +114,7 @@
       const khach = danhSachKhach.find(k => k.id && k.id.toLowerCase() === guestId.toLowerCase().trim());
 
       if (khach) {
-        hienThiKhach(khach.name, khach.message);
+        hienThiKhach(khach.name, khach.message || macDinh.loiNhan);
         document.title = `Thiệp mời tham dự Lễ tốt nghiệp • ${cfg.nguoiTotNghiep?.ten || 'Tạ Thị Nga'} | Gửi ${khach.name}`;
       } else {
         hienThiKhach(macDinh.ten, macDinh.loiNhan);
@@ -124,7 +129,7 @@
         elTenKhach.textContent = ten;
       }
       if (elLoiNhan) {
-        elLoiNhan.textContent = `"${loiNhan}"`;
+        elLoiNhan.textContent = `"${loiNhan || macDinh.loiNhan}"`;
       }
     }
   }
