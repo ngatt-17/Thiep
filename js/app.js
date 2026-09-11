@@ -57,6 +57,11 @@
       linkBanDo.href = cfg.diaDiem.linkBanDo;
     }
 
+    const linkHustMap = document.getElementById('link-hust-map');
+    if (linkHustMap && cfg.diaDiem.linkHustMap) {
+      linkHustMap.href = cfg.diaDiem.linkHustMap;
+    }
+
     const linkSdt = document.getElementById('link-sdt-lien-he');
     const chuSdt = document.getElementById('chu-sdt-lien-he');
     if (linkSdt && cfg.nguoiTotNghiep.sdt) {
@@ -64,6 +69,11 @@
       if (chuSdt) {
         chuSdt.textContent = `${cfg.nguoiTotNghiep.sdt} • ${cfg.nguoiTotNghiep.tenLienHe || 'Nga'}`;
       }
+    }
+
+    if (cfg.thongDiepThem) {
+      if (cfg.thongDiepThem.nhacNho) ganChu('chu-nhac-nho-noi-dung', cfg.thongDiepThem.nhacNho);
+      if (cfg.thongDiepThem.loiNhanChay) ganChu('chu-thoai-chay', cfg.thongDiepThem.loiNhanChay);
     }
   }
 
@@ -431,18 +441,28 @@
       isRunning = true;
 
       const screenW = window.innerWidth;
-      const runnerW = elRunner.offsetWidth || 68;
       
       // 80% chạy từ trái sang phải, 20% chạy từ phải sang trái
       const sangPhai = Math.random() < 0.8;
-      const startX = sangPhai ? -runnerW - 40 : screenW + 40;
-      const endX = sangPhai ? screenW + 40 : -runnerW - 40;
       const direction = sangPhai ? 1 : -1;
 
-      let currentX = startX;
-
+      elRunner.style.display = 'flex';
+      // Chim luôn chạy ở vị trí dẫn đầu hướng di chuyển, dòng chữ đi liền ngang người phía sau
+      elRunner.style.flexDirection = sangPhai ? 'row-reverse' : 'row';
       elRunner.classList.add('dang-chay');
-      elRunner.style.display = 'block';
+
+      // Đo chiều rộng chính xác sau khi đã bật hiển thị flex
+      const runnerW = elRunner.offsetWidth || 350;
+      const startX = sangPhai ? -runnerW - 60 : screenW + 60;
+      const endX = sangPhai ? screenW + 60 : -runnerW - 60;
+
+      let currentX = startX;
+      elRunner.style.transform = `translate3d(${currentX}px, 0, 0)`;
+
+      const innerMascot = elRunner.querySelector('.than-canh-cut-chay-inner');
+      if (innerMascot) {
+        innerMascot.style.transform = `scaleX(${direction})`;
+      }
 
       let lastTime = performance.now();
 
@@ -451,18 +471,18 @@
         lastTime = now;
 
         // Tốc độ chạy lạch bạch vui nhộn (~110px/s)
-        const pixelsPerSec = 105;
+        const pixelsPerSec = 110;
         currentX += (sangPhai ? 1 : -1) * pixelsPerSec * dt;
 
-        elRunner.style.transform = `translate3d(${currentX}px, 0, 0) scaleX(${direction})`;
+        elRunner.style.transform = `translate3d(${currentX}px, 0, 0)`;
 
-        // Sinh hạt tim và bụi sao rơi lại phía sau chân
+        // Sinh hạt tim và bụi sao rơi lại phía sau chân chú chim cánh cụt
         if (now - lastTrailTime > 420) {
           lastTrailTime = now;
-          const rect = elRunner.getBoundingClientRect();
-          if (rect.right > 0 && rect.left < screenW) {
-            const trailX = sangPhai ? rect.left + 12 : rect.right - 12;
-            const trailY = rect.bottom - 18;
+          const mRect = innerMascot ? innerMascot.getBoundingClientRect() : elRunner.getBoundingClientRect();
+          if (mRect.right > 0 && mRect.left < screenW) {
+            const trailX = sangPhai ? mRect.left + 12 : mRect.right - 12;
+            const trailY = mRect.bottom - 18;
             taoVetTim(trailX, trailY, sangPhai);
           }
         }

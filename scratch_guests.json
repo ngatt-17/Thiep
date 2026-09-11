@@ -1,0 +1,176 @@
+[
+  {
+    "stt": 1,
+    "fullName": "Bùi Thị Như Ngọc",
+    "inviteName": "Như Ngọc",
+    "slug": "nhu-ngoc"
+  },
+  {
+    "stt": 2,
+    "fullName": "Nguyễn Thị Thảo Anh",
+    "inviteName": "Thảo Anh",
+    "slug": "thao-anh"
+  },
+  {
+    "stt": 3,
+    "fullName": "Phạm Thị Phương Thùy",
+    "inviteName": "Phương Thùy",
+    "slug": "phuong-thuy"
+  },
+  {
+    "stt": 4,
+    "fullName": "Phạm Thị Lệ",
+    "inviteName": "Lệ Lệ",
+    "slug": "le-le"
+  },
+  {
+    "stt": 5,
+    "fullName": "Khổng Thị Tú Quyên",
+    "inviteName": "Tú Quyên",
+    "slug": "tu-quyen"
+  },
+  {
+    "stt": 6,
+    "fullName": "Hoàng Thị Duyên",
+    "inviteName": "Duyên Hoàng",
+    "slug": "duyen-hoang"
+  },
+  {
+    "stt": 7,
+    "fullName": "Lê Minh Tiên",
+    "inviteName": "Minh Tiên",
+    "slug": "minh-tien"
+  },
+  {
+    "stt": 8,
+    "fullName": "Lôi Đình Nhất",
+    "inviteName": "Đình Nhất",
+    "slug": "dinh-nhat"
+  },
+  {
+    "stt": 9,
+    "fullName": "Chu Thân Nhất",
+    "inviteName": "Chu Nhất",
+    "slug": "chu-nhat"
+  },
+  {
+    "stt": 10,
+    "fullName": "Nguyễn Văn Hiệp",
+    "inviteName": "Hiệp Nguyễn",
+    "slug": "hiep-nguyen"
+  },
+  {
+    "stt": 11,
+    "fullName": "Nguyễn Văn Minh",
+    "inviteName": "Nguyễn Minh",
+    "slug": "nguyen-minh"
+  },
+  {
+    "stt": 12,
+    "fullName": "Lê Thu Yến",
+    "inviteName": "Thu Yến",
+    "slug": "thu-yen"
+  },
+  {
+    "stt": 13,
+    "fullName": "Đặng Hồng Hạnh",
+    "inviteName": "Hồng Hạnh",
+    "slug": "hong-hanh"
+  },
+  {
+    "stt": 14,
+    "fullName": "Nguyễn Văn Hưng",
+    "inviteName": "Bạn Hưng",
+    "slug": "ban-hung"
+  },
+  {
+    "stt": 15,
+    "fullName": "Trần Xuân Sơn",
+    "inviteName": "Bạn Sơn",
+    "slug": "ban-son"
+  },
+  {
+    "stt": 16,
+    "fullName": "Lê Đức Đạt",
+    "inviteName": "Em Đạt",
+    "slug": "em-dat"
+  },
+  {
+    "stt": 17,
+    "fullName": "Hoàng Thị Hạnh",
+    "inviteName": "Em Hạnh",
+    "slug": "em-hanh"
+  },
+  {
+    "stt": 18,
+    "fullName": "Nguyễn Thị Thảo",
+    "inviteName": "Em Thảo",
+    "slug": "em-thao"
+  },
+  {
+    "stt": 19,
+    "fullName": "Đặng Thị Thùy Dương",
+    "inviteName": "Em Dương",
+    "slug": "em-duong"
+  },
+  {
+    "stt": 20,
+    "fullName": "Dương Lý Đức",
+    "inviteName": "Ný Đức",
+    "slug": "ny-duc"
+  },
+  {
+    "stt": 21,
+    "fullName": "Nguyễn Văn Hiếu",
+    "inviteName": "Hiếu Nguyễn",
+    "slug": "hieu-nguyen"
+  },
+  {
+    "stt": 22,
+    "fullName": "Tùng Nguyễn",
+    "inviteName": "Tùng Nguyễn",
+    "slug": "tung-nguyen"
+  },
+  {
+    "stt": 23,
+    "fullName": "Hồng Anh",
+    "inviteName": "Em Hồng Anh",
+    "slug": "em-hong-anh"
+  },
+  {
+    "stt": 24,
+    "fullName": "Võ Nhật Huy",
+    "inviteName": "Anh Võ Nhật Huy",
+    "slug": "anh-vo-nhat-huy"
+  },
+  {
+    "stt": 25,
+    "fullName": "Dương Thanh Hương",
+    "inviteName": "Em Hương",
+    "slug": "em-huong"
+  },
+  {
+    "stt": 26,
+    "fullName": "Nguyễn Thị Huyền Trang",
+    "inviteName": "Chị Trang",
+    "slug": "chi-trang"
+  },
+  {
+    "stt": 27,
+    "fullName": "Nguyễn Việt Hoàng",
+    "inviteName": "Bạn Hoàng",
+    "slug": "ban-hoang"
+  },
+  {
+    "stt": 28,
+    "fullName": "Tạ Đình Tuấn",
+    "inviteName": "Em Tuấn",
+    "slug": "em-tuan"
+  },
+  {
+    "stt": 29,
+    "fullName": "Tạ Đình Tú",
+    "inviteName": "Em Tú",
+    "slug": "em-tu"
+  }
+]

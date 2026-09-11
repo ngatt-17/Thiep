@@ -111,8 +111,10 @@
 
       <!-- 1. THƯ MỜI CÁ NHÂN HÓA (THÂN MỜI BẠN VÀ LỜI NHẮN) -->
       <section class="the-loi-moi-ca-nhan" aria-label="Lời mời cá nhân hóa">
-        <div class="loi-chao-nho">Thân mời</div>
-        <div class="ten-khach-moi" id="ten-khach-moi">Bạn thân mến</div>
+        <div class="dong-chao-khach-moi">
+          <span class="loi-chao-nho">Thân mời</span>
+          <span class="ten-khach-moi" id="ten-khach-moi">Bạn thân mến</span>
+        </div>
         <p class="noi-dung-loi-nhan" id="noi-dung-loi-nhan">
           "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu
           lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
@@ -120,97 +122,110 @@
       </section>
 
       <!-- 6, 7, 8 & ĐẾM NGƯỢC: BỐ CỤC 2x2 CÂN BẰNG TUYỆT ĐỐI (EDITORIAL LUXURY) -->
-      <section class="khung-su-kien-trang-nha" aria-label="Thông tin thời gian, địa điểm và đếm ngược">
+      <!-- 2. THÔNG TIN SỰ KIỆN: THỜI GIAN & ĐỊA ĐIỂM (CÂN ĐỐI 100% CỠ CHỮ & HIGHLIGHT) -->
+      <section class="khung-su-kien-trang-nha" aria-label="Thông tin thời gian và địa điểm">
 
-        <!-- HÀNG 1: THỜI GIAN (Trái) & ĐẾM NGƯỢC (Phải) -->
-        <div class="dong-su-kien dong-thoi-gian-va-dem-nguoc">
-          <!-- Cột Trái: Thời gian -->
-          <div class="cot-thong-tin">
-            <span class="nhan-chi-muc">
-              <svg class="icon-chi-muc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              THỜI GIAN
+        <!-- HÀNG 1: THỜI GIAN -->
+        <div class="dong-thong-tin-su-kien">
+          <span class="nhan-chi-muc">
+            <svg class="icon-chi-muc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            THỜI GIAN
+          </span>
+          <div class="dong-gia-tri-thoi-gian">
+            <!-- Nét highlight tự nhiên phủ nửa dưới dòng chữ như bút nhớ dòng thật -->
+            <span class="cum-thoi-gian-highlight">
+              <span class="gio-chinh" id="hien-thi-gio">09:00</span>
+              <span class="cham-phan-cach">•</span>
+              <span class="ngay-chinh" id="hien-thi-ngay">Thứ bảy, 26/09/2026</span>
             </span>
-            <div class="dong-gia-tri-thoi-gian">
-              <!-- Nét highlight tự nhiên phủ 45% nửa dưới dòng chữ như bút nhớ dòng thật -->
-              <span class="cum-thoi-gian-highlight">
-                <span class="gio-chinh" id="hien-thi-gio">09:00</span>
-                <span class="cham-phan-cach">•</span>
-                <span class="ngay-chinh" id="hien-thi-ngay">Thứ bảy, 26/09/2026</span>
-              </span>
-            </div>
-          </div>
-
-          <!-- Cột Phải: Bộ đếm ngược thời gian thanh lịch -->
-          <div class="cot-dem-nguoc">
-            <div class="bo-so-editorial" id="khung-dem-nguoc-dong">
-              <div class="cum-so">
-                <span class="so-gia-tri" id="dem-nguoc-ngay">00</span>
-                <span class="chu-nhan">NGÀY</span>
-              </div>
-              <span class="dau-hai-cham">:</span>
-              <div class="cum-so">
-                <span class="so-gia-tri" id="dem-nguoc-gio">00</span>
-                <span class="chu-nhan">GIỜ</span>
-              </div>
-              <span class="dau-hai-cham">:</span>
-              <div class="cum-so">
-                <span class="so-gia-tri" id="dem-nguoc-phut">00</span>
-                <span class="chu-nhan">PHÚT</span>
-              </div>
-              <span class="dau-hai-cham">:</span>
-              <div class="cum-so">
-                <span class="so-gia-tri" id="dem-nguoc-giay">00</span>
-                <span class="chu-nhan">GIÂY</span>
-              </div>
-            </div>
-            <div class="thong-bao-dien-ra" id="thong-bao-dien-ra"></div>
           </div>
         </div>
 
         <!-- ĐƯỜNG PHÂN CÁCH HAIRLINE TINH TẾ -->
         <div class="duong-chi-hairline" aria-hidden="true"></div>
 
-        <!-- HÀNG 2: ĐỊA ĐIỂM (Trái) & NÚT BẢN ĐỒ (Phải) -->
-        <div class="dong-su-kien dong-dia-diem-va-ban-do">
-          <!-- Cột Trái: Địa điểm -->
-          <div class="cot-thong-tin">
-            <span class="nhan-chi-muc">
-              <svg class="icon-chi-muc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"></path>
-                <circle cx="12" cy="9" r="2.25"></circle>
-              </svg>
-              ĐỊA ĐIỂM
-            </span>
-            <div class="dia-diem-chinh"><span class="cum-dia-diem-highlight" id="hien-thi-dia-diem">Hội trường C2, Đại
-                học Bách khoa Hà&nbsp;Nội</span></div>
-            <div class="dia-diem-phu" id="hien-thi-dia-chi">Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội</div>
-          </div>
+        <!-- HÀNG 2: ĐỊA ĐIỂM & 2 NÚT BẢN ĐỒ (GOOGLE MAPS & HUST MAP) -->
+        <div class="dong-thong-tin-su-kien dong-dia-diem-toan-dien">
+          <span class="nhan-chi-muc">
+            <svg class="icon-chi-muc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"></path>
+              <circle cx="12" cy="9" r="2.25"></circle>
+            </svg>
+            ĐỊA ĐIỂM
+          </span>
+          <div class="dia-diem-chinh"><span class="cum-dia-diem-highlight" id="hien-thi-dia-diem">Hội trường C2, Đại học Bách khoa Hà&nbsp;Nội</span></div>
 
-          <!-- Cột Phải: Nút xem bản đồ đối trọng hoàn hảo -->
-          <div class="cot-hanh-dong-ban-do">
-            <a href="#" id="link-xem-ban-do" class="nut-chi-duong-sang" target="_blank" rel="noopener noreferrer">
-              <svg class="icon-map" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+          <!-- Nhóm 2 nút xem bản đồ: Chỉ đường Google Maps & Bản đồ Bách Khoa (HUST Map) -->
+          <div class="nhom-nut-ban-do">
+            <a href="#" id="link-xem-ban-do" class="nut-ban-do nut-ban-do--google" target="_blank" rel="noopener noreferrer" title="Chỉ đường qua Google Maps">
+              <svg class="icon-map" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
                 <line x1="9" y1="3" x2="9" y2="18"></line>
                 <line x1="15" y1="6" x2="15" y2="21"></line>
               </svg>
               <span>Xem bản đồ đường đi</span>
-              <svg class="icon-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              <svg class="icon-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="https://hustmap.com/" id="link-hust-map" class="nut-ban-do nut-ban-do--hust" target="_blank" rel="noopener noreferrer" title="Xem bản đồ khuôn viên Đại học Bách khoa Hà Nội (HUST Map)">
+              <svg class="icon-map" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Bản đồ Bách Khoa (HUST)</span>
+              <svg class="icon-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </a>
           </div>
         </div>
 
       </section>
+
+      <!-- 3. KHỐI ĐẾM NGƯỢC XUỐNG KHOẢNG TRỐNG BÊN DƯỚI (THEO YÊU CẦU NGƯỜI DÙNG) -->
+      <section class="khoi-dem-nguoc-duoi" aria-label="Đếm ngược đến ngày tốt nghiệp">
+        <div class="bo-so-editorial" id="khung-dem-nguoc-dong">
+          <div class="cum-so">
+            <span class="so-gia-tri" id="dem-nguoc-ngay">00</span>
+            <span class="chu-nhan">NGÀY</span>
+          </div>
+          <span class="dau-hai-cham">:</span>
+          <div class="cum-so">
+            <span class="so-gia-tri" id="dem-nguoc-gio">00</span>
+            <span class="chu-nhan">GIỜ</span>
+          </div>
+          <span class="dau-hai-cham">:</span>
+          <div class="cum-so">
+            <span class="so-gia-tri" id="dem-nguoc-phut">00</span>
+            <span class="chu-nhan">PHÚT</span>
+          </div>
+          <span class="dau-hai-cham">:</span>
+          <div class="cum-so">
+            <span class="so-gia-tri" id="dem-nguoc-giay">00</span>
+            <span class="chu-nhan">GIÂY</span>
+          </div>
+        </div>
+        <div class="thong-bao-dien-ra" id="thong-bao-dien-ra"></div>
+      </section>
+
+      <!-- 3. LƯU Ý NHỎ SÁT LỀ DƯỚI CÙNG (1 DÒNG CHUẨN ĐỒNG BỘ FONT) -->
+      <footer class="khoi-luu-y-nho" aria-label="Lưu ý đồ dùng cá nhân">
+        <span class="icon-luu-y-sao" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5C12 7.8 7.8 12 2.5 12C7.8 12 12 16.2 12 21.5C12 16.2 16.2 12 21.5 12C16.2 12 12 7.8 12 2.5Z" />
+          </svg>
+        </span>
+        <span class="chu-luu-y-nho" id="chu-nhac-nho-noi-dung">Vì có khá đông người, bạn nhớ cẩn thận với điện thoại và các đồ dùng cá nhân nhé!</span>
+      </footer>
 
     </article>
 
@@ -242,6 +257,11 @@
     <div id="chu-canh-cut-chay" class="chu-canh-cut-chay">
       <div class="than-canh-cut-chay-inner">
         <img src="assets/images/penguin_shy_heart.png" alt="Chú chim cánh cụt chạy lon ton" class="anh-canh-cut-chay">
+      </div>
+      <!-- Dòng chữ chạy ngang người chú chim cánh cụt (không để trên đầu, không bo góc) -->
+      <div class="chu-chay-ngang-nguoi" id="bong-bong-chay">
+        <span class="chu-thoai-chay" id="chu-thoai-chay">Hẹn gặp bạn ở Bách Khoa nhé, Nga chờ bạn đó!</span>
+        <span class="tim-thoai-chay" aria-hidden="true">💙</span>
       </div>
     </div>
   </aside>

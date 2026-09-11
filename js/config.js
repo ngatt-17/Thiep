@@ -22,14 +22,20 @@ const THONG_TIN_SU_KIEN = {
   // Địa điểm tổ chức
   diaDiem: {
     tenDiaDiem: "Hội trường C2, Đại học Bách khoa Hà\u00A0Nội",
-    diaChi: "Cổng Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội",
-    linkBanDo: "https://maps.google.com/?q=Cổng+Trần+Đại+Nghĩa,+Đại+học+Bách+khoa+Hà+Nội,+Hà+Nội"
+    linkBanDo: "https://maps.google.com/?q=Cổng+Trần+Đại+Nghĩa,+Đại+học+Bách+khoa+Hà+Nội,+Hà+Nội",
+    linkHustMap: "https://hustmap.com/"
   },
 
   // Khách mời mặc định
   khachMacDinh: {
     ten: "Bạn thân mến",
     loiNhan: "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+
+  // Lưu ý & Lời nhắn thân thương
+  thongDiepThem: {
+    nhacNho: "Vì có khá đông người, bạn nhớ cẩn thận với điện thoại và các đồ dùng cá nhân nhé!",
+    loiNhanChay: "Hẹn gặp bạn ở Bách Khoa nhé, Nga chờ bạn đó!"
   }
 };
 
