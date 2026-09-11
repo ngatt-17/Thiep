@@ -34,7 +34,7 @@ const THONG_TIN_SU_KIEN = {
 
   // Lưu ý & Lời nhắn thân thương
   thongDiepThem: {
-    nhacNho: "Vì có khá đông người, bạn nhớ cẩn thận với điện thoại và các đồ dùng cá nhân nhé!",
+    nhacNho: "Hôm đó có khá đông người, bạn nhớ để ý điện thoại và đồ dùng cá nhân nhé!",
     loiNhanChay: "Hẹn gặp bạn ở Bách Khoa nhé, Nga chờ bạn đó!"
   }
 };
