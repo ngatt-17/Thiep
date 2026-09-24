@@ -111,7 +111,10 @@
       if (!res.ok) throw new Error('Không thể tải file guests.json');
       const danhSachKhach = await res.json();
 
-      const khach = danhSachKhach.find(k => k.id && k.id.toLowerCase() === guestId.toLowerCase().trim());
+      const khach = danhSachKhach.find(k => 
+        (k.id && k.id.toLowerCase() === guestId.toLowerCase().trim()) ||
+        (Array.isArray(k.aliases) && k.aliases.some(a => a.toLowerCase().trim() === guestId.toLowerCase().trim()))
+      );
 
       if (khach) {
         hienThiKhach(khach.name, khach.message || macDinh.loiNhan);
