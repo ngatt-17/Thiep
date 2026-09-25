@@ -1,0 +1,227 @@
+/**
+ * DỮ LIỆU DANH SÁCH KHÁCH MỜI DỰ PHÒNG & LOCAL
+ * Giúp thiệp luôn hiển thị đúng tên ngay cả khi mở file trực tiếp (file://)
+ * hoặc khi GitHub Pages / Trình duyệt chưa kịp xóa cache guests.json.
+ */
+window.DANH_SACH_KHACH = [
+  {
+    "stt": 1,
+    "fullName": "Bùi Thị Như Ngọc",
+    "name": "Như Ngọc",
+    "id": "nhu-ngoc",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 2,
+    "fullName": "Nguyễn Thị Thảo Anh",
+    "name": "Thảo Anh",
+    "id": "thao-anh",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 3,
+    "fullName": "Phạm Thị Phương Thùy",
+    "name": "Phương Thùy",
+    "id": "phuong-thuy",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 4,
+    "fullName": "Phạm Thị Lệ",
+    "name": "Lệ Lệ",
+    "id": "le-le",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 5,
+    "fullName": "Khổng Thị Tú Quyên",
+    "name": "Tú Quyên",
+    "id": "tu-quyen",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 6,
+    "fullName": "Hoàng Thị Duyên",
+    "name": "Duyên Hoàng",
+    "id": "duyen-hoang",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 7,
+    "fullName": "Lê Minh Tiên",
+    "name": "Minh Tiên",
+    "id": "minh-tien",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 8,
+    "fullName": "Lôi Đình Nhất",
+    "name": "Đình Nhất",
+    "id": "dinh-nhat",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 9,
+    "fullName": "Chu Thân Nhất",
+    "name": "Chu Nhất",
+    "id": "chu-nhat",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 10,
+    "fullName": "Nguyễn Văn Hiệp",
+    "name": "Hiệp Nguyễn",
+    "id": "hiep-nguyen",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 11,
+    "fullName": "Nguyễn Văn Minh",
+    "name": "Nguyễn Minh",
+    "id": "nguyen-minh",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 12,
+    "fullName": "Lê Thu Yến",
+    "name": "Thu Yến",
+    "id": "thu-yen",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 13,
+    "fullName": "Đặng Hồng Hạnh",
+    "name": "Hồng Hạnh",
+    "id": "hong-hanh",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 14,
+    "fullName": "Nguyễn Văn Hưng",
+    "name": "Bạn Hưng",
+    "id": "ban-hung",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 15,
+    "fullName": "Trần Xuân Sơn",
+    "name": "Bạn Sơn",
+    "id": "ban-son",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 16,
+    "fullName": "Lê Đức Đạt",
+    "name": "Em Đạt",
+    "id": "em-dat",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 17,
+    "fullName": "Hoàng Thị Hạnh",
+    "name": "Em Hạnh",
+    "id": "em-hanh",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 18,
+    "fullName": "Nguyễn Thị Thảo",
+    "name": "Em Thảo",
+    "id": "em-thao",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 19,
+    "fullName": "Đặng Thị Thùy Dương",
+    "name": "Em Dương",
+    "id": "em-duong",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 20,
+    "fullName": "Dương Lý Đức",
+    "name": "Ný Đức",
+    "id": "ny-duc",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 21,
+    "fullName": "Nguyễn Văn Hiếu",
+    "name": "Hiếu Nguyễn",
+    "id": "hieu-nguyen",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 22,
+    "fullName": "Tùng Nguyễn",
+    "name": "Tùng Nguyễn",
+    "id": "tung-nguyen",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 23,
+    "fullName": "Hồng Anh",
+    "name": "Em Hồng Anh",
+    "id": "em-hong-anh",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 24,
+    "fullName": "Võ Nhật Huy",
+    "name": "Anh Võ Nhật Huy",
+    "id": "anh-vo-nhat-huy",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 25,
+    "fullName": "Dương Thanh Hương",
+    "name": "Em Hương",
+    "id": "em-huong",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 26,
+    "fullName": "Nguyễn Thị Huyền Trang",
+    "name": "Chị Trang",
+    "id": "chi-trang",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 27,
+    "fullName": "Nguyễn Việt Hoàng",
+    "name": "Bạn Hoàng",
+    "id": "ban-hoang",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 28,
+    "fullName": "Tạ Đình Tuấn",
+    "name": "Em Tuấn",
+    "id": "em-tuan",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 29,
+    "fullName": "Tạ Đình Tú",
+    "name": "Em Tú",
+    "id": "em-tu",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 30,
+    "fullName": "Phạm Anh Thư",
+    "name": "Anh Thư",
+    "id": "anh-thu",
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  },
+  {
+    "stt": 31,
+    "fullName": "Nguyễn Thị Vân",
+    "name": "Bạn Vân",
+    "id": "ban-van",
+    "aliases": [
+      "van-nguyen"
+    ],
+    "message": "Bốn năm thanh xuân khép lại bằng một ngày thật đặc biệt. Nga rất mong bạn sẽ có mặt, cùng chung vui và lưu lại những khoảnh khắc thật đẹp trong ngày tốt nghiệp này nhé!"
+  }
+];

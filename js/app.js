@@ -107,13 +107,27 @@
     }
 
     try {
-      const res = await fetch('./guests.json');
-      if (!res.ok) throw new Error('Không thể tải file guests.json');
-      const danhSachKhach = await res.json();
+      let danhSachKhach = [];
+      try {
+        const res = await fetch(`./guests.json?v=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          danhSachKhach = await res.json();
+        }
+      } catch (e) {
+        console.warn('Không thể nạp trực tiếp qua fetch, chuyển sang dữ liệu dự phòng:', e);
+      }
 
+      // Hợp nhất hoặc ưu tiên dữ liệu dự phòng window.DANH_SACH_KHACH nếu fetch thiếu hoặc lỗi
+      if (!Array.isArray(danhSachKhach) || danhSachKhach.length === 0) {
+        danhSachKhach = Array.isArray(window.DANH_SACH_KHACH) ? window.DANH_SACH_KHACH : [];
+      } else if (Array.isArray(window.DANH_SACH_KHACH) && window.DANH_SACH_KHACH.length > danhSachKhach.length) {
+        danhSachKhach = window.DANH_SACH_KHACH;
+      }
+
+      const cleanGuestId = guestId.toLowerCase().trim();
       const khach = danhSachKhach.find(k => 
-        (k.id && k.id.toLowerCase() === guestId.toLowerCase().trim()) ||
-        (Array.isArray(k.aliases) && k.aliases.some(a => a.toLowerCase().trim() === guestId.toLowerCase().trim()))
+        (k.id && k.id.toLowerCase().trim() === cleanGuestId) ||
+        (Array.isArray(k.aliases) && k.aliases.some(a => a && a.toLowerCase().trim() === cleanGuestId))
       );
 
       if (khach) {
